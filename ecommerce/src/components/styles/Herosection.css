@@ -1,0 +1,27 @@
+.Header-Desktop{
+    background-color: #2EC4B6 ;
+    padding: -100px;
+    position: relative;
+    width: calc(100% + 1.3px);
+    height: 420px;
+}
+
+.Hero-image {
+    margin-top: -300px;
+}
+
+.slang-image {
+    color: white;
+    width: 40%;
+    padding: 30px;
+    padding-right: -50px;
+}
+
+.Order-now {
+    background-color: #FFB551;
+    color: white;
+    border-radius: 15px;
+    padding: 10px 20px;
+    margin-bottom: 120px;
+    margin-left: 120px;
+}
