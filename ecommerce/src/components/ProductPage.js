@@ -1,4 +1,4 @@
-import NavBar from "./NavBar";
+import NavBarProduct from "./NavBarProduct";
 import "./styles/Herosection2.css";
 import SlangImage from "../images/Your Pet-Priority.png";
 import ProductImage from "../images/Hero-productPage.png";
@@ -6,7 +6,7 @@ import ProductImage from "../images/Hero-productPage.png";
 const ProductPage = () => {
   return (
     <div>
-      <NavBar />
+      <NavBarProduct />
       <div className="Header-Desktop2">
         <div className="slang-image2">
           <img src={SlangImage} alt="slang image"></img>

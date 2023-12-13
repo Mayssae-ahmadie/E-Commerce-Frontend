@@ -6,6 +6,14 @@
     height: 420px;
 }
 
+.nav-bar2 {
+    background-color: #FFB551;
+}
+
+.login-btn2 {
+    background-color: #2EC4B6;
+}
+
 .Hero-image2 {
     margin-top: -338px;
 }
@@ -24,4 +32,18 @@
     padding: 10px 20px;
     margin-bottom: 120px;
     margin-left: 120px;
+}
+
+.Hero-image2 {
+    margin-top: -365px;
+}
+
+.Hero-image3 {
+    margin-top: -335px;
+}
+
+.slang-image3 {
+    width: 40%;
+    padding: 70px;
+    padding-right: -70px;
 }

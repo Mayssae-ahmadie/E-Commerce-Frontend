@@ -1,15 +1,17 @@
-import "./styles/NavBar.css";
+import "./styles/NavBar2.css";
 import Logo from "../images/Logo.png";
 import Vector from "../images/Vector.png";
+import CartImage from "../images/cart-image.png";
 
-const NavBar = () => {
+
+const NavBarProduct = () => {
   return (
 
-      <div className="nav-bar">
-        <div className="Logo">
+      <div className="nav-bar2">
+        <div className="Logo2">
            <img src={Logo} alt="logo icon"></img>
         </div>
-        <div className="Links">
+        <div className="Links2">
           <ul>
             <li>
               <a href="#About" className="">About</a>
@@ -24,12 +26,15 @@ const NavBar = () => {
               <a href="#Contact" className="">Contact us</a>
             </li>
             <li>
-              <img src={Vector} className="search-icon" alt="search icon"></img>
+              <img src={Vector} className="search-icon2" alt="search icon"></img>
+            </li>
+            <li>
+              <img src={CartImage} className="cart-icon2" alt="cart-icon"></img>
             </li>
           </ul>
         </div>
-        <div className="Login">
-          <button className="login-btn">Log in</button>
+        <div className="Login2">
+          <button className="login-btn2">Log in</button>
         </div>
       </div>
 
@@ -76,4 +81,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default NavBarProduct;

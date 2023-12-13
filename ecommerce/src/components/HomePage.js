@@ -1,8 +1,8 @@
 import React from "react";
 import Herosection from "./Herosection";
 import About from './About';
-import Products from "./Products";
-import NavBar from "./NavBar";
+// import Products from "./Products";
+import NavBar from "./NavBarHome";
 // import Services from './Services';
 // import Contact from './Contact';
 
