@@ -1,10 +1,15 @@
 import './App.css';
-import Services from './components/services'; // Import the Services component
+import './components/styles/style.css';
+import './components/styles/commonstyle.css';
+import AboutUs from './components/about';
+import Services from './components/services';
 
 function App() {
   return (
     <div className="App">
-      <Services /> {/* Include the Services component here */}
+      <AboutUs />
+      <Services />
+
     </div>
   );
 }
