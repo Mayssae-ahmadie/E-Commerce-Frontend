@@ -2,7 +2,10 @@ import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import './styles/footer.css';
 import { Link } from 'react-router-dom';
-
+import facebook from "../images/facebook-icon.png"
+import instagram from "../images/instagram-icon.png"
+import linkedin from "../images/linkedin-icon.png"
+import footerimage from "../images/Footer-image.png"
 
 function Footer() {
     const form = useRef();
@@ -34,7 +37,7 @@ function Footer() {
         <div className="footer-container">
             <div className="footer-grid">
                 <div className="footer-column">
-                    <img className="footer-image" src="./Images/Footer-image.png" alt="" />
+                    <img className="footer-image" src={footerimage} alt="" />
                 </div>
                 <div className="footer-column">
                     <div className="footer-contact">
@@ -100,13 +103,13 @@ function Footer() {
                 </div>
                 <div className="footer-social-icons">
                     <Link to="">
-                        <img src="./Images/facebook-icon.png" alt="" />
+                        <img src={facebook} alt="" />
                     </Link>
                     <Link to="">
-                        <img src="./Images/instagram-icon.png" alt="" />
+                        <img src={instagram} alt="" />
                     </Link>
                     <Link to="">
-                        <img src="./Images/linkedin-icon.png" alt="" />
+                        <img src={linkedin} alt="" />
                     </Link>
                 </div>
             </div>
