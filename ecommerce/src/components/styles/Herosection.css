@@ -1,9 +1,10 @@
-.Header-Desktop{
-    background-color: #2EC4B6 ;
+.Header-Desktop {
+    background-color: #2EC4B6;
     padding: -100px;
     position: relative;
     width: calc(100% + 1.3px);
     height: 420px;
+    margin-bottom: 15%;
 }
 
 .Hero-image {

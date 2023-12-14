@@ -1,20 +1,19 @@
 import React from "react";
-import Herosection from "./Herosection";
-import About from './About';
-// import Products from "./Products";
 import NavBar from "./NavBarHome";
-// import Services from './Services';
-// import Contact from './Contact';
+import Herosection from "./Herosection";
+import AboutUs from "./about";
+import Services from "./services";
+import Footer from "./footer";
 
 const HomePage = () => {
   return (
     <div>
-      <NavBar/>
-      <Herosection text="omar Now!" />
-      {/* <About/> */}
+      <NavBar />
+      <Herosection />
+      <AboutUs />
       {/* <Products /> */}
-      {/* <Services/> */}
-      {/* <Contact/> */}
+      <Services />
+      <Footer />
     </div>
   );
 };
