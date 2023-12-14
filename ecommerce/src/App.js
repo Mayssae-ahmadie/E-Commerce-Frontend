@@ -14,12 +14,21 @@ import './components/styles/commonstyle.css';
 import AboutUs from "./components/about";
 import Services from './components/services';
 import Footer from './components/footer';
+import Login from "./components/login";
 
 
 function App() {
   return (
+    <div>
     <div className="App">
-      <HomePage />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/Products" element={<ProductPage />} />
+        <Route path="/Cart" element={<CartPage />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+
+    </div>
     </div>
   );
 }

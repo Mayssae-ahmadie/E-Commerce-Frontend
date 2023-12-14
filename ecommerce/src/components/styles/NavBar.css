@@ -52,5 +52,11 @@
     padding: 7px 20px;
     margin: 1px 8px 15px;
     margin-right: 40px;
+    hover {
+        /* Add hover effect styles */
+        /* For instance, change color or add a shadow on hover */
+        color: #fff; /* Change text color on hover */
+        background-color: #2EC4B6;}
+    
 
 }
