@@ -1,4 +1,4 @@
-.Navbar{
+.Navbar2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -6,7 +6,7 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.06);
  }
  
-.nav-bar{
+.nav-bar2 {
     background-color: #2EC4B6;
     display: flex;
     justify-content: space-between;
@@ -14,38 +14,38 @@
     width: 100vw;
 }
 
-.cart-icon {
+.cart-icon2 {
     width: 70%;
     margin-top: -15%;
 }
 
-.Logo{
+.Logo2{
     width: 20%;
     margin: 10px 7px;
 }
 
-.Links {
+.Links2 {
     width: 60%;
     height: 100%;
 }
 
-.Links ul {
+.Links2 ul {
     display: flex;
     justify-content: space-between;
     color: white;
 }
 
-.Login {
+.Login2 {
     display: flex;
     justify-content: flex-end;
     width: 10%;
 }
 
-.search-icon {
+.search-icon2 {
     width: 40%;
 }
 
-.login-btn {
+.login-btn2 {
     background-color: #FFB551;
     color: white;
     border-radius: 15px;

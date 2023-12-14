@@ -1,0 +1,49 @@
+.Header-Desktop2{
+    background-color: #FFB551;
+    padding: -100px;
+    position: relative;
+    width: calc(100% + 1.3px);
+    height: 420px;
+}
+
+.nav-bar2 {
+    background-color: #FFB551;
+}
+
+.login-btn2 {
+    background-color: #2EC4B6;
+}
+
+.Hero-image2 {
+    margin-top: -338px;
+}
+
+.slang-image2 {
+    color: white;
+    width: 40%;
+    padding: 30px;
+    padding-right: -50px;
+}
+
+.Order-now2 {
+    background-color: #2EC4B6;
+    color: white;
+    border-radius: 15px;
+    padding: 10px 20px;
+    margin-bottom: 120px;
+    margin-left: 120px;
+}
+
+.Hero-image2 {
+    margin-top: -365px;
+}
+
+.Hero-image3 {
+    margin-top: -335px;
+}
+
+.slang-image3 {
+    width: 40%;
+    padding: 70px;
+    padding-right: -70px;
+}
