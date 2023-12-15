@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "../images/Logo.png";
-
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 function LoginForm() {
   const [isRegistering, setIsRegistering] = useState(false);
   const [columnsOrder, setColumnsOrder] = useState("row");
+  const navigate = useNavigate();
 
   const handleRegisterClick = () => {
     setIsRegistering(true);
@@ -13,6 +15,105 @@ function LoginForm() {
   const handleBackToLogin = () => {
     setIsRegistering(false);
     setColumnsOrder("row");
+  };
+
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
+  const [phoneNumber, setphoneNumber] = useState("");
+  const [address, setaddress] = useState("");
+  const [bool, setBool] = useState(true);
+
+  useEffect(() => {}, [bool]);
+  const handleEmail = (e) => {
+    const email = e.target.value;
+    const emailTest = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    if (email !== "" && emailTest.test(email)) {
+      setEmail(email);
+    }
+  };
+  const handlePassword = (e) => {
+    const password = e.target.value;
+    const passwordTest =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (passwordTest.test(password)) {
+      setPassword(password);
+    }
+  };
+  // const handleRole = (e) => {
+  //   if (e.target.checked) {
+  //     const spanValue = e.target.nextElementSibling.textContent;
+  //     setRole(spanValue);
+  //   }
+  // };
+
+  const handleRegistration = async (e) => {
+    e.preventDefault();
+    const emailTest = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    const passwordTest =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (
+      email == "" ||
+      !emailTest.test(email) ||
+      !passwordTest.test(password) ||
+      password == ""
+    ) {
+      alert("Please fill in all fields correctly!");
+      return;
+    }
+    const newUser = {
+      fullName: fullName,
+      email: email,
+      password: password,
+      role: role,
+      phoneNumber: phoneNumber,
+      address: address,
+    };
+    try {
+      const response = await axios.post(
+        `http://localhost:5000/users/register`,
+        newUser
+      );
+      const data = response.data;
+      console.log(data);
+      // setRole("");
+      setFullName("");
+      setEmail("");
+      setPassword("");
+      handleBackToLogin();
+    } catch (error) {
+      console.log("Error while registering", error);
+    }
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(`http://localhost:5000/users/login`, {
+        email,
+        password,
+      });
+      const userData = response.data;
+      console.log(response.data);
+      navigate("/");
+      // localStorage.setItem('user', JSON.stringify(userData));
+      //     dispatch({ type: 'LOGIN', payload: userData });
+
+      // if (role.toLowerCase() == "admin") {
+      //   navigate(`/Admin/AllCoaches?adminName=${userData.user.full_name}&adminId=${userData.user.user_id}`);
+      // } else if (role.toLowerCase() == "coach") {
+      //   navigate(
+      //     `/Coach/YourCourses?coachName=${userData.user.full_name}&coachId=${userData.user.user_id}`
+      //   );
+      // } else if (role.toLowerCase() == "trainee") {
+      //   navigate(
+      //     `/Trainee/AllCourses?traineeName=${userData.user.full_name}&traineeId=${userData.user.user_id}`
+      //   );
+      // }
+    } catch (error) {
+      console.error("Error while logging in:", error);
+    }
   };
 
   return (
@@ -38,16 +139,20 @@ function LoginForm() {
 
                   <form>
                     <p className="mb-4">
-                      {isRegistering ? "Register now" : "Please login to your account"}
+                      {isRegistering
+                        ? "Register now"
+                        : "Please login to your account"}
                     </p>
                     {!isRegistering && (
                       <>
                         <div className="relative mb-4">
                           <input
-                            type="text"
+                            type="email"
                             className="peer block min-h-[auto] w-full rounded border border-gray-300 bg-white px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear shadow-text-black text-black"
                             id="exampleFormControlInput1"
                             placeholder="Email"
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
                           />
                         </div>
                         <div className="relative mb-4">
@@ -56,6 +161,8 @@ function LoginForm() {
                             className="peer block min-h-[auto] w-full rounded border border-gray-300 bg-white px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear shadow-text-black text-black"
                             id="exampleFormControlInput11"
                             placeholder="Password"
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
                           />
                         </div>
                       </>
@@ -68,6 +175,8 @@ function LoginForm() {
                             className="peer block min-h-[auto] w-full rounded border border-gray-300 bg-white px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear shadow-text-black text-black"
                             id="fullNameInput"
                             placeholder="Full Name"
+                            onChange={(e) => setFullName(e.target.value)}
+                            required
                           />
                         </div>
                         <div className="relative mb-4">
@@ -76,6 +185,8 @@ function LoginForm() {
                             className="peer block min-h-[auto] w-full rounded border border-gray-300 bg-white px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear shadow-text-black text-black"
                             id="emailInput"
                             placeholder="Email"
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
                           />
                         </div>
                         <div className="relative mb-4">
@@ -84,6 +195,35 @@ function LoginForm() {
                             className="peer block min-h-[auto] w-full rounded border border-gray-300 bg-white px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear shadow-text-black text-black"
                             id="passwordInput"
                             placeholder="Password"
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                          />
+                        </div>
+                        <div className="relative mb-4">
+                          <input
+                            type="text"
+                            className="peer block min-h-[auto] w-full rounded border border-gray-300 bg-white px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear shadow-text-black text-black"
+                            placeholder="Role"
+                            onChange={(e) => setRole(e.target.value)}
+                            required
+                          />
+                        </div>
+                        <div className="relative mb-4">
+                          <input
+                            type="text"
+                            className="peer block min-h-[auto] w-full rounded border border-gray-300 bg-white px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear shadow-text-black text-black"
+                            placeholder="Phone Number"
+                            onChange={(e) => setphoneNumber(e.target.value)}
+                            required
+                          />
+                        </div>
+                        <div className="relative mb-4">
+                          <input
+                            type="text"
+                            className="peer block min-h-[auto] w-full rounded border border-gray-300 bg-white px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear shadow-text-black text-black"
+                            placeholder="Address"
+                            onChange={(e) => setaddress(e.target.value)}
+                            required
                           />
                         </div>
                       </>
@@ -97,19 +237,22 @@ function LoginForm() {
                         style={{
                           background: "#FFB551",
                         }}
-                        onClick={isRegistering ? handleBackToLogin : handleRegisterClick}
+                        onClick={
+                          isRegistering
+                            ? (e) => handleRegistration(e)
+                            : (e) => {
+                                handleLogin(e);
+                              }
+                        }
                       >
                         {isRegistering ? "Register Now" : "Log in"}
                       </button>
-                      {!isRegistering && (
-                        <a href="#!" className="text-white hover:text-primary">
-                          Forgot password?
-                        </a>
-                      )}
                     </div>
                     <div className="flex items-center justify-between pb-6">
                       <p className="mb-0 mr-2">
-                        {!isRegistering ? "Don't have an account?" : "Already have an account?"}
+                        {!isRegistering
+                          ? "Don't have an account?"
+                          : "Already have an account?"}
                       </p>
                       <button
                         type="button"
@@ -119,7 +262,11 @@ function LoginForm() {
                         style={{
                           background: "#FFB551",
                         }}
-                        onClick={isRegistering ? handleBackToLogin : handleRegisterClick}
+                        onClick={
+                          isRegistering
+                            ? handleBackToLogin
+                            : handleRegisterClick
+                        }
                       >
                         {!isRegistering ? "Register" : "Back to Login"}
                       </button>
@@ -136,11 +283,10 @@ function LoginForm() {
                     We are more than just a shop
                   </h4>
                   <p className="text-xl">
-                    Trust our caring team for pet sitting services, providing
-                    a home away from home for your beloved furry companions.
-                    We provide you with personalized consultations to your
-                    furry friend's needs, ensuring optimal health and
-                    happiness.
+                    Trust our caring team for pet sitting services, providing a
+                    home away from home for your beloved furry companions. We
+                    provide you with personalized consultations to your furry
+                    friend's needs, ensuring optimal health and happiness.
                   </p>
                 </div>
               </div>
