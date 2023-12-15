@@ -3,7 +3,7 @@ import NavBar from "./NavBarHome";
 import Herosection from "./Herosection";
 import AboutUs from "./about";
 import Services from "./services";
-import Footer from "./footer";
+import Footer from "./footerhomepage";
 import ProductsHomepage from "./productshomepage";
 
 const HomePage = () => {
