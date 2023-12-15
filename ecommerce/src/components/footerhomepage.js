@@ -7,7 +7,7 @@ import instagram from "../images/instagram-icon.png"
 import linkedin from "../images/linkedin-icon.png"
 import footerimage from "../images/Footer-image.png"
 
-function Footer() {
+function Footerhomepage() {
     const form = useRef();
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
@@ -120,4 +120,4 @@ function Footer() {
     );
 }
 
-export default Footer;
+export default Footerhomepage;

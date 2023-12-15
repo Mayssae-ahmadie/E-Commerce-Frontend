@@ -3,7 +3,7 @@ import './components/styles/style.css';
 import './components/styles/commonstyle.css';
 import AboutUs from './components/about';
 import Services from './components/services';
-import Footer from './components/footer';
+import Footerhomepage from './components/footerhomepage';
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <AboutUs />
       <Services />
-      <Footer />
+      <Footerhomepage />
     </div>
   );
 }
