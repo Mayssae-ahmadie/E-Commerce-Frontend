@@ -1,39 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import './styles/products.css';
-import axios from 'axios';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import petfood from '../images/Pet Food.png';
+import petaccessory from '../images/Pet accessory.png';
+import paws from '../images/Paws.png'
 
 const Products = () => {
-    const [productsdata, setProductsData] = useState([]);
-
-    const fetchProductsdata = () => {
-        axios.get('http://localhost:5000/products/getAll')
-          .then((response) => {
-            setProductsData(response.data.data);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      };
-      
-      useEffect(() => {
-        fetchProductsdata();
-      }, []);
-
-  return (
-    <div id='Productssection' >
-      <h1 className="Product-title">Products section</h1>
-    <div className="product-container">
-      {productsdata && productsdata.map((products) => (
-        <div className="product-box" key = {products.products_id}> 
-            <div className="product-box">
-            <img src={products.product_img} className="product-img" alt={products.product_name} />
-            <h2 className="product-name">{products.product_name}</h2>
-            </div> 
+    return (
+        <div className="text-center text-4xl pt-10 pb-10 relative" style={{ color: "#FFB551" }}> PRODUCTS
+            <div className="flex justify-center gap-20 p-2 md:p-10 relative">
+                <div className="block relative">
+                    <img className="h-64" src={petfood} alt="" />
+                    <Link to="/ProductPage">
+                        <button className="text-xl mt-4 bg-ffb551 h-38 w-300 text-white border-2 border rounded-2xl pt-3 pb-3 pl-12 pr-12" style={{ backgroundColor: "#FFB551", borderColor: '#2EC4B6' }}>
+                            SHOP FOOD
+                        </button>
+                    </Link>
+                </div>
+                <div className="block relative">
+                    <img className="h-64" src={petaccessory} alt="" />
+                    <Link to="/ProductPage">
+                        <button className="text-xl mt-4 bg-ffb551 h-38 w-300 text-white border-2 border rounded-2xl pt-3 pb-3 pl-12 pr-12" style={{ backgroundColor: "#FFB551", borderColor: '#2EC4B6' }}>
+                            SHOP ACCESSORIES
+                        </button>
+                    </Link>
+                </div>
+                <img className="h-48 absolute right-2 -mt-100 mr-87" src={paws} alt="" />
+            </div>
         </div>
-      ))}
-    </div>
-    </div>
-  )
-}
+    );
+};
 
 export default Products;

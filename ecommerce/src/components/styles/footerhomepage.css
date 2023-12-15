@@ -1,4 +1,4 @@
-.footer-container {
+.footer-container-homepage {
     margin-top: 5%;
     background-color: #FFB551;
 }
@@ -6,7 +6,6 @@
 .footer-grid {
     display: flex;
     grid-gap: 5%;
-    background-color: #FFB551;
 }
 
 .footer-column,

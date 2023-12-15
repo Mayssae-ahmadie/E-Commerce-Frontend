@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
+import './styles/footerhomepage.css';
 import './styles/footerproductcart.css';
 import { Link } from 'react-router-dom';
 import facebook from "../images/facebook-icon.png"
@@ -34,10 +35,10 @@ function Footerproductcart() {
     });
 
     return (
-        <div className="footer-container">
+        <div className="footer-container-product-cart">
             <div className="footer-grid">
                 <div className="footer-column">
-                    <img className="footer-image" src={footerproductcart} alt="" />
+                    <img className="footer-image2" src={footerproductcart} alt="" />
                 </div>
                 <div className="footer-column">
                     <div className="footer-contact">
@@ -97,7 +98,7 @@ function Footerproductcart() {
                     </div>
                 </div>
             </div>
-            <div className="footer-social full-width">
+            <div className="footer-social full-width2">
                 <div>
                     <h2 className="footer-social-header">Follow us</h2>
                 </div>

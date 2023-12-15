@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-import './styles/footer.css';
 import { Link } from 'react-router-dom';
+import './styles/footerhomepage.css';
 import facebook from "../images/facebook-icon.png"
 import instagram from "../images/instagram-icon.png"
 import linkedin from "../images/linkedin-icon.png"
@@ -34,7 +34,7 @@ function Footerhomepage() {
     });
 
     return (
-        <div className="footer-container">
+        <div className="footer-container-homepage">
             <div className="footer-grid">
                 <div className="footer-column">
                     <img className="footer-image" src={footerimage} alt="" />

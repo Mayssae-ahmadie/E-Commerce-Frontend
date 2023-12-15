@@ -1,10 +1,10 @@
 import React from "react";
 import NavBar from "./NavBarHome";
 import Herosection from "./Herosection";
-import AboutUs from "./about";
-import Services from "./services";
-import Footer from "./footerhomepage";
-import ProductsHomepage from "./productshomepage";
+import AboutUs from "./About";
+import Products from "./Products";
+import Services from "./Services";
+import Footerhomepage from "./Footerhomepage";
 
 const HomePage = () => {
   return (
@@ -12,9 +12,9 @@ const HomePage = () => {
       <NavBar />
       <Herosection />
       <AboutUs />
-      <ProductsHomepage />
+      <Products />
       <Services />
-      <Footer />
+      <Footerhomepage />
     </div>
   );
 };

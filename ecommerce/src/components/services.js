@@ -1,6 +1,4 @@
 import React from 'react';
-import './styles/style.css';
-import './styles/commonstyle.css';
 import petshampoo from '../images/Pet shampoo.png'
 import petgrooming from '../images/Pet grooming.png'
 import petvaccine from '../images/Pet vaccine.png'
