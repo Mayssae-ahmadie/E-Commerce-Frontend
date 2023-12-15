@@ -9,14 +9,13 @@
 .nav-bar{
     background-color: #2EC4B6;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    width: 100vw;
 }
 
 .cart-icon {
-    width: 70%;
-    margin-top: -15%;
+    width: 50%;
+    margin-top: -13%;
 }
 
 .Logo{
@@ -27,18 +26,22 @@
 .Links {
     width: 60%;
     height: 100%;
+    padding-left: 5%;
+    padding-top: 2%;
 }
 
 .Links ul {
     display: flex;
     justify-content: space-between;
     color: white;
+    padding-left: 5%;
 }
 
 .Login {
     display: flex;
     justify-content: flex-end;
     width: 10%;
+    padding-top: 2%;
 }
 
 .search-icon {
@@ -52,5 +55,4 @@
     padding: 7px 20px;
     margin: 1px 8px 15px;
     margin-right: 40px;
-
 }

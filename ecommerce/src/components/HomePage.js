@@ -4,6 +4,7 @@ import Herosection from "./Herosection";
 import AboutUs from "./about";
 import Services from "./services";
 import Footer from "./footer";
+import ProductsHomepage from "./productshomepage";
 
 const HomePage = () => {
   return (
@@ -11,7 +12,7 @@ const HomePage = () => {
       <NavBar />
       <Herosection />
       <AboutUs />
-      {/* <Products /> */}
+      <ProductsHomepage />
       <Services />
       <Footer />
     </div>
