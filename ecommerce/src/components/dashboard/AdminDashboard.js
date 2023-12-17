@@ -1,34 +1,46 @@
-import React, { useState } from "react";
-import "../styles/NavBar.css";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import CreateUser from './CreateUser';
+import AllUsers from './AllUsers';
+import Language from './Language';
+import SignOut from './Signout';
+import Logo from "../dashboard/Logo.png";
+import '../styles/AdminDashboard.css';
+
 const AdminDashboard = () => {
-  const [clicked, setclicked] = useState(false);
-  const handleClick = () => {
-    setclicked(!clicked);
-  };
+    const [selectedOption, setSelectedOption] = useState('users');
 
-  return (
-    <div>
-      <nav className="Navbar">
-        <Link className="Pet-logo" to="/"></Link>
+    const handleNavigationChange = (section) => {
+        setSelectedOption(section);
+        console.log(selectedOption);
+    };
+
+    return (
         <div>
-          <ul id="N-menu" className={clicked ? "#N-menu active" : "#N-menu"}>
-            <li className="N-menu-items">
-              <h1 className="Mn-admin">Hello Admin</h1>
-            </li>
-
-            <li className="N-menu-button">
-              <button className="N-register">Sign Out</button>
-            </li>
-          </ul>
+            <div>
+            <img src={Logo} alt="logo icon"></img>
+            </div>
+            <div className="Admin-Sidebar">
+                <button className={`Sidebar-Button ${selectedOption === 'CreateUser' ? 'active' : ''}`} onClick={() => handleNavigationChange('CreateUser')}>
+                    Create User
+                </button>
+                <button className={`Sidebar-Button ${selectedOption === 'AllUsers' ? 'active' : ''}`} onClick={() => handleNavigationChange('AllUsers')}>
+                    All Users
+                </button>
+                <button className={`Sidebar-Button ${selectedOption === 'Language' ? 'active' : ''}`} onClick={() => handleNavigationChange('Language')}>
+                    Language
+                </button>
+                <button className={`Sidebar-Button ${selectedOption === 'Signout' ? 'active' : ''}`} onClick={() => handleNavigationChange('Signout')}>
+                    Sign Out
+                </button>
+            </div>
+            <div className="Admin-Content">
+                {selectedOption === 'CreateUser' && <CreateUser />}
+                {selectedOption === 'AllUsers' && <AllUsers />}
+                {selectedOption === 'Language' && <Language />}
+                {selectedOption === 'Signout' && <SignOut />}
+            </div>
         </div>
-
-        <div id="" onClick={handleClick}>
-          <i id="bar" className={clicked ? "fas fa-times" : "fas fa-bars"}></i>
-        </div>
-      </nav>
-    </div>
-  );
+    );
 };
 
 export default AdminDashboard;
