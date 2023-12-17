@@ -5,8 +5,8 @@ import "./App.css";
 // import NavBarCart from "./components/NavBarCart";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import HomePage from "./components/HomePage";
-
-// import ProductPage from "./components/ProductPage";
+import ProductPage from "./components/ProductPage";
+import SingleProductPage from "./components/SingleProductPage";
 // import CartPage from "./components/CartPage";
 
 function App() {
@@ -14,7 +14,9 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<HomePage />} />
-        {/* <Route path="/Productpage" element={<ProductPage />} /> */}
+        <Route path="/ProductPage" element={<ProductPage />} />
+        <Route path="/SingleProductPage/:id" element={<SingleProductPage />} />
+
       </Routes>
     </div >
   );

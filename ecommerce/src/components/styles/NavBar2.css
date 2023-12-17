@@ -3,23 +3,22 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px 80px 20px 60px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
- }
- 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+}
+
 .nav-bar2 {
     background-color: #2EC4B6;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100vw;
 }
 
 .cart-icon2 {
-    width: 70%;
-    margin-top: -15%;
+    width: 50%;
+    margin-top: -13%;
 }
 
-.Logo2{
+.Logo2 {
     width: 20%;
     margin: 10px 7px;
 }
@@ -27,18 +26,22 @@
 .Links2 {
     width: 60%;
     height: 100%;
+    padding-left: 5%;
+    padding-top: 2%;
 }
 
 .Links2 ul {
     display: flex;
     justify-content: space-between;
     color: white;
+    padding-left: 5%;
 }
 
 .Login2 {
     display: flex;
     justify-content: flex-end;
     width: 10%;
+    padding-top: 2%;
 }
 
 .search-icon2 {
@@ -52,5 +55,4 @@
     padding: 7px 20px;
     margin: 1px 8px 15px;
     margin-right: 40px;
-
 }
