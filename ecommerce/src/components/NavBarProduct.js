@@ -2,6 +2,7 @@ import "./styles/NavBar2.css";
 import Logo from "../images/Logo.png";
 import Vector from "../images/Vector.png";
 import CartImage from "../images/cart-image.png";
+import { Link } from "react-router-dom";
 
 
 const NavBarProduct = () => {

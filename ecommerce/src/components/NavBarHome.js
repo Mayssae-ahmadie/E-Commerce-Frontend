@@ -2,6 +2,7 @@ import "./styles/NavBar.css";
 import Logo from "../images/Logo.png";
 import Vector from "../images/Vector.png";
 import CartImage from "../images/cart-image.png";
+import { Link } from "react-router-dom";
 
 const NavBarHome = () => {
   return (
@@ -33,7 +34,7 @@ const NavBarHome = () => {
           </ul>
         </div>
         <div className="Login">
-          <button className="login-btn">Log in</button>
+          <Link to='/login' className="login-btn">Log in</Link>
         </div>
       </div>
 

@@ -1,12 +1,12 @@
-.Navbar{
+.Navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px 80px 20px 60px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
- }
- 
-.nav-bar{
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+}
+
+.nav-bar {
     background-color: #2EC4B6;
     display: flex;
     justify-content: center;
@@ -18,7 +18,7 @@
     margin-top: -13%;
 }
 
-.Logo{
+.Logo {
     width: 20%;
     margin: 10px 7px;
 }
@@ -55,4 +55,9 @@
     padding: 7px 20px;
     margin: 1px 8px 15px;
     margin-right: 40px;
+}
+
+.login-btn:hover {
+    color: #fff;
+    background-color: #2EC4B6;
 }
