@@ -25,7 +25,7 @@ function LoginForm() {
   const [address, setaddress] = useState("");
   const [bool, setBool] = useState(true);
 
-  useEffect(() => {}, [bool]);
+  useEffect(() => { }, [bool]);
   const handleEmail = (e) => {
     const email = e.target.value;
     const emailTest = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
@@ -241,8 +241,8 @@ function LoginForm() {
                           isRegistering
                             ? (e) => handleRegistration(e)
                             : (e) => {
-                                handleLogin(e);
-                              }
+                              handleLogin(e);
+                            }
                         }
                       >
                         {isRegistering ? "Register Now" : "Log in"}
