@@ -1,8 +1,8 @@
-.Header-Desktop2{
+.Header-Desktop2 {
     background-color: #FFB551;
     padding: -100px;
     position: relative;
-    width: calc(100% + 1.3px);
+    width: 100%;
     height: 420px;
 }
 
