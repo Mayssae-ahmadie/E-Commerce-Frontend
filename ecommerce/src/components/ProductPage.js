@@ -6,12 +6,13 @@ import HeroProductPage from "../images/Hero-productPage.png";
 import Footerproductcart from "./Footerproductcart";
 import "./styles/Herosection2.css";
 import axios from 'axios';
-import add from '../images/Add.png'
-import cat from '../images/Cat.png'
-import dog from '../images/Dog.png'
+import add from '../images/Add.png';
+import cat from '../images/Cat.png';
+import dog from '../images/Dog.png';
 
 const AllProductPage = () => {
     const [productData, setProductData] = useState([]);
+    const [selectedProduct, setSelectedProduct] = useState();
     const navigate = useNavigate();
 
     const fetchProductData = () => {
@@ -28,15 +29,56 @@ const AllProductPage = () => {
         fetchProductData();
     }, []);
 
-    const addToCart = async (productId) => {
+    const getUserID = () => {
         try {
-            const response = await axios.post('http://localhost:5000/cart/addProduct', {
-                productId,
+            const token = sessionStorage.getItem("authToken");
+            if (token) {
+                const decodedToken = jwtDecode(token);
+                return decodedToken.id;
+            }
+        } catch (error) {
+            console.error("Error decoding token:", error);
+        }
+        return null;
+    };
+
+    const cart = {
+        userId: getUserID,
+        products: [
+            {
+                productId: selectedProduct ? selectedProduct._id : "",
                 quantity: 1,
+            },
+        ],
+    };
+
+    const addToCart = (cart, productIdToAdd) => {
+        const existingProduct = cart.products.find(product => product.productId === productIdToAdd);
+
+        if (existingProduct) {
+            existingProduct.quantity += 1;
+        } else {
+            cart.products.push({
+                productId: productIdToAdd,
+                quantity: 1,
+            });
+        }
+    };
+
+    const handleAddToCart = async (product) => {
+        try {
+            const userId = getUserID;
+            addToCart(cart, product._id);
+
+            const response = await axios.post('http://localhost:5000/cart/addProduct', {
+                userId: userId,
+                products: cart.products,
             });
 
             if (response.data.success) {
+                setSelectedProduct(product);
                 navigate('/cart');
+                console.log('Product added to cart successfully');
             } else {
                 console.error('Error adding product to cart:', response.data.message);
             }
@@ -70,20 +112,21 @@ const AllProductPage = () => {
                     <div className="grid grid-cols-3 gap-4 p-10">
                         {catFoodProducts.map((product) => (
                             <div key={product._id}>
-                                <Link to={`/SingleProductPage/${product._id}`}></Link>
                                 <div className="block justify-center items-center border-2 border-orange-500 rounded-3xl" style={{ borderColor: "FFB551" }}>
                                     <div className="flex justify-between">
                                         <div>
-                                            <img className="h-20 border-2 border-orange-500 rounded-tl-3xl rounded-br-3xl" style={{ borderColor: "FFB551" }} src={cat} alt="" />
+                                            <img className="h-20 border-2 border-orange-500 rounded-tl-3xl rounded-br-3xl" style={{ borderColor: "FFB551" }} src={cat} alt="Cat Food" />
                                         </div>
                                         <img
                                             className="h-12 border-2 border-orange-500 rounded-tr-3xl rounded-bl-3xl cursor-pointer"
                                             src={add}
-                                            alt=""
-                                            onClick={() => addToCart(product._id)}
+                                            alt="Add to Cart"
+                                            onClick={() => handleAddToCart(product)}
                                         />
                                     </div>
-                                    <img src={product.productImage} className="mx-auto w-64 h-64 p-5" alt={product.productName} onClick={() => navigate(`/SingleProductPage/${product._id}`)} />
+                                    <Link to={`/SingleProductPage/${product._id}`}>
+                                        <img src={product.productImage} className="mx-auto w-64 h-64 p-5" alt={product.productName} onClick={() => navigate(`/SingleProductPage/${product._id}`)} />
+                                    </Link>
                                     <h2 className="text-center text-xl font-lilita" style={{ color: "#2EC4B6" }}>
                                         <Link to={`/SingleProductPage/${product._id}`}>{product.productName}</Link>
                                     </h2>
@@ -96,20 +139,21 @@ const AllProductPage = () => {
                         ))}
                         {dogFoodProducts.map((product) => (
                             <div key={product._id}>
-                                <Link to={`/SingleProductPage/${product._id}`}></Link>
                                 <div className="block justify-center items-center border-2 border-orange-500 rounded-3xl" style={{ borderColor: "FFB551" }}>
                                     <div className="flex justify-between">
                                         <div>
-                                            <img className="h-20 border-2 border-orange-500 rounded-tl-3xl rounded-br-3xl" style={{ borderColor: "FFB551" }} src={dog} alt="" onClick={() => navigate(`/SingleProductPage/${product._id}`)} />
+                                            <img className="h-20 border-2 border-orange-500 rounded-tl-3xl rounded-br-3xl" style={{ borderColor: "FFB551" }} src={dog} alt="Dog Food" onClick={() => navigate(`/SingleProductPage/${product._id}`)} />
                                         </div>
                                         <img
                                             className="h-12 border-2 border-orange-500 rounded-tr-3xl rounded-bl-3xl cursor-pointer"
                                             src={add}
-                                            alt=""
-                                            onClick={() => addToCart(product._id)}
+                                            alt="Add to Cart"
+                                            onClick={() => handleAddToCart(product)}
                                         />
                                     </div>
-                                    <img src={product.productImage} className="mx-auto w-64 h-64 p-5" alt={product.productImage} />
+                                    <Link to={`/SingleProductPage/${product._id}`}>
+                                        <img src={product.productImage} className="mx-auto w-64 h-64 p-5" alt={product.productImage} />
+                                    </Link>
                                     <h2 className="text-center text-xl font-lilita" style={{ color: "#2EC4B6" }}>
                                         <Link to={`/SingleProductPage/${product._id}`}>{product.productName}</Link>
                                     </h2>
@@ -128,17 +172,18 @@ const AllProductPage = () => {
                     <div className="grid grid-cols-3 gap-4 p-10">
                         {accessoryProducts.map((product) => (
                             <div className="product-box" key={product._id}>
-                                <Link to={`/SingleProductPage/${product._id}`}></Link>
                                 <div className="block justify-center items-center border-2 border-orange-500 rounded-3xl" style={{ borderColor: "FFB551" }}>
                                     <div className="flex justify-end">
                                         <img
                                             className="h-12 border-2 border-orange-500 rounded-tr-3xl rounded-bl-3xl cursor-pointer"
                                             src={add}
-                                            alt=""
-                                            onClick={() => addToCart(product._id)}
+                                            alt="Add to Cart"
+                                            onClick={() => handleAddToCart(product)}
                                         />
                                     </div>
-                                    <img src={product.productImage} className="mx-auto w-64 h-64 p-5" alt={product.productName} onClick={() => navigate(`/SingleProductPage/${product._id}`)} />
+                                    <Link to={`/SingleProductPage/${product._id}`}>
+                                        <img src={product.productImage} className="mx-auto w-64 h-64 p-5" alt={product.productName} onClick={() => navigate(`/SingleProductPage/${product._id}`)} />
+                                    </Link>
                                     <h2 className="text-center text-xl font-lilita" style={{ color: "#2EC4B6" }}>
                                         <Link to={`/SingleProductPage/${product._id}`}>{product.productName}</Link>
                                     </h2>
