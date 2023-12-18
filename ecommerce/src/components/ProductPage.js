@@ -4,6 +4,7 @@ import NavBarProduct from "./NavBarProduct";
 import SlangImage from "../images/Your Pet-Priority.png";
 import HeroProductPage from "../images/Hero-productPage.png";
 import Footerproductcart from "./Footerproductcart";
+import { getUserID } from './Util/GetUserData';
 import "./styles/Herosection2.css";
 import axios from 'axios';
 import add from '../images/Add.png';
@@ -28,19 +29,6 @@ const AllProductPage = () => {
     useEffect(() => {
         fetchProductData();
     }, []);
-
-    const getUserID = () => {
-        try {
-            const token = sessionStorage.getItem("authToken");
-            if (token) {
-                const decodedToken = jwtDecode(token);
-                return decodedToken.id;
-            }
-        } catch (error) {
-            console.error("Error decoding token:", error);
-        }
-        return null;
-    };
 
     const cart = {
         userId: getUserID,
