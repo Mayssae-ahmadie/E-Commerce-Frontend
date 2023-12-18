@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import HomePage from "./components/HomePage";
 import ProductPage from "./components/ProductPage";
 import SingleProductPage from "./components/SingleProductPage";
-// import CartPage from "./components/CartPage";
+import CartPage from "./components/CartPage";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/ProductPage" element={<ProductPage />} />
         <Route path="/SingleProductPage/:id" element={<SingleProductPage />} />
-
+        <Route path="/CartPage" element={<CartPage />} />
       </Routes>
     </div >
   );
