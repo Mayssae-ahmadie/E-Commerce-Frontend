@@ -25,7 +25,7 @@ function LoginForm() {
   const [address, setaddress] = useState("");
   const [bool, setBool] = useState(true);
 
-  useEffect(() => { }, [bool]);
+  useEffect(() => {}, [bool]);
   const handleEmail = (e) => {
     const email = e.target.value;
     const emailTest = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
@@ -97,7 +97,7 @@ function LoginForm() {
       const userData = response.data;
       console.log(response.data);
       navigate("/");
-      // localStorage.setItem('user', JSON.stringify(userData));
+      sessionStorage.setItem("authToken", userData.token);
       //     dispatch({ type: 'LOGIN', payload: userData });
 
       // if (role.toLowerCase() == "admin") {
@@ -112,6 +112,9 @@ function LoginForm() {
       //   );
       // }
     } catch (error) {
+      if (error?.response?.data?.error) {
+        alert(error.response.data.error);
+      }
       console.error("Error while logging in:", error);
     }
   };
@@ -241,8 +244,8 @@ function LoginForm() {
                           isRegistering
                             ? (e) => handleRegistration(e)
                             : (e) => {
-                              handleLogin(e);
-                            }
+                                handleLogin(e);
+                              }
                         }
                       >
                         {isRegistering ? "Register Now" : "Log in"}

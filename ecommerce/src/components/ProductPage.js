@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import NavBarProduct from "./NavBarProduct";
 import SlangImage from "../images/Your Pet-Priority.png";
 import HeroProductPage from "../images/Hero-productPage.png";
-import Footerproductcart from "./Footerproductcart";
+import Footerproductcart from "./footerproductcart";
 import "./styles/Herosection2.css";
 import axios from 'axios';
 import add from '../images/Add.png'
