@@ -56,3 +56,18 @@
     margin: 1px 8px 15px;
     margin-right: 40px;
 }
+
+.Links4 ul {
+    display: flex;
+    font-size: xx-large;
+    justify-content: space-between;
+    color: white;
+    padding-right: 60%;
+    gap: 30%;
+}
+
+.Logo4 {
+    width: 20%;
+    margin: 20px 150px;
+    margin-left: -40%;
+}

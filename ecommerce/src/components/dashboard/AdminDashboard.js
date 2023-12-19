@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import "../styles/NavBar.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -28,6 +29,21 @@ const AdminDashboard = () => {
         </div>
       </nav>
     </div>
+=======
+import UserTable from "../dashboard/UserTable";
+import OrderTable from "./OrderTable";
+import ProductTable from "./ProductTable";
+import SideBar from "../Sidebar";
+
+const AdminDashboard = () => {
+  return (
+    <>
+      <SideBar />
+      <UserTable />
+      <ProductTable />
+      <OrderTable />
+    </>
+>>>>>>> 6-dashboard-admin
   );
 };
 

@@ -6,7 +6,8 @@ import ProductPage from "./components/ProductPage";
 import SingleProductPage from "./components/SingleProductPage";
 import LoginForm from "./components/login";
 import CartPage from "./components/CartPage";
-
+import AdminDashboard from "./components/dashboard/AdminDashboard"
+import SellerDashboard from "./components/dashboard/SellerDashboard";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Route path="/ProductPage" element={<ProductPage />} />
         <Route path="/SingleProductPage/:id" element={<SingleProductPage />} />
         <Route path="/CartPage" element={<CartPage />} />
+        <Route path="/admin/*" element={<AdminDashboard />} />
+        <Route path="/seller/*" element={<SellerDashboard />} />
       </Routes>
     </div >
   );

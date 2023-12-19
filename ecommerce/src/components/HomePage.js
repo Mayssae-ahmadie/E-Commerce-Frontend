@@ -1,10 +1,10 @@
 import React from "react";
 import NavBar from "./NavBarHome";
 import Herosection from "./Herosection";
-import AboutUs from "./About";
+import AboutUs from "./about";
 import Products from "./Products";
-import Services from "./Services";
-import Footerhomepage from "./Footerhomepage";
+import Services from "./services";
+import Footerhomepage from "./footerhomepage";
 
 const HomePage = () => {
   return (
