@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import NavBarProduct from "./NavBarProduct";
 import SlangImage from "../images/Your Pet-Priority.png";
 import HeroProductPage from "../images/Hero-productPage.png";
@@ -10,6 +10,7 @@ import axios from 'axios';
 const SingleProductPage = () => {
     const [product, setProduct] = useState(null);
     const [quantity, setQuantity] = useState(1);
+    const navigate = useNavigate();
     const { id } = useParams();
 
     useEffect(() => {
@@ -37,31 +38,21 @@ const SingleProductPage = () => {
 
     const handleAddToCart = async () => {
         try {
-            const { data: userResponse } = await axios.get(`http://localhost:5000/users/getUserId/${id}`);
-
-            if (userResponse.success) {
-                const userId = userResponse.data._id;
-
-                const { data: cartResponse } = await axios.get(`http://localhost:5000/cart/getCart/${userId}`);
-
-                if (cartResponse.success) {
-                    const cartId = cartResponse.data._id;
-
-                    const response = await axios.post(`http://localhost:5000/cart/addProduct/${cartId}`, {
+            const response = await axios.post('http://localhost:5000/cart/addProduct', {
+                userId: 'user._id',
+                products: [
+                    {
                         productId: product._id,
-                        quantity,
-                    });
+                        quantity: quantity,
+                    },
+                ],
+            });
 
-                    if (response.data.success) {
-                        console.log('Product added to cart successfully');
-                    } else {
-                        console.error('Error adding product to cart:', response.data.message);
-                    }
-                } else {
-                    console.error('Error fetching the user cart:', cartResponse.data.message);
-                }
+            if (response.data.success) {
+                navigate('/cart');
+                console.log('Product added to cart successfully');
             } else {
-                console.error('Error fetching user:', userResponse.message);
+                console.error('Error adding product to cart:', response.data.message);
             }
         } catch (error) {
             console.error('Error adding product to cart:', error.message);
