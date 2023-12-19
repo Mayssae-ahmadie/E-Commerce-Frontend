@@ -7,6 +7,7 @@ import SingleProductPage from "./components/SingleProductPage";
 import LoginForm from "./components/login";
 import CartPage from "./components/CartPage";
 
+
 function App() {
   return (
     <div className="App">
