@@ -4,40 +4,43 @@ import Vector from "../images/Vector.png";
 import CartImage from "../images/cart-image.png";
 import { Link } from "react-router-dom";
 
-
 const NavBarProduct = () => {
   return (
 
-      <div className="nav-bar2">
-        <div className="Logo2">
-           <img src={Logo} alt="logo icon"></img>
-        </div>
-        <div className="Links2">
-          <ul>
-            <li>
-              <a href="#About" className="">About</a>
-            </li>
-            <li>
-              <a href="/Products" className="">Products</a>
-            </li>
-            <li>
-              <a href="#Services" className="">Services</a>
-            </li>
-            <li>
-              <a href="#Contact" className="">Contact us</a>
-            </li>
-            <li>
-              <img src={Vector} className="search-icon2" alt="search icon"></img>
-            </li>
-            <li>
-              <img src={CartImage} className="cart-icon2" alt="cart-icon"></img>
-            </li>
-          </ul>
-        </div>
-        <div className="Login2">
-          <button className="login-btn2">Log in</button>
-        </div>
+    <div className="nav-bar2">
+      <div className="Logo2">
+        <Link to="/">
+          <img src={Logo} alt="logo icon"></img>
+        </Link>
       </div>
+      <div className="Links2">
+        <ul>
+          <li>
+            <a href="#About" className="">About</a>
+          </li>
+          <li>
+            <a href="/Products" className="">Products</a>
+          </li>
+          <li>
+            <a href="#Services" className="">Services</a>
+          </li>
+          <li>
+            <a href="#Contact" className="">Contact us</a>
+          </li>
+          <li>
+            <img src={Vector} className="search-icon2" alt="search icon"></img>
+          </li>
+          <li>
+            <Link to='/CartPage'>
+              <img src={CartImage} className="cart-icon2" alt="cart-icon"></img>
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <div className="Login2">
+        <Link to='/login' className="login-btn2">Log in</Link>
+      </div>
+    </div>
 
 
 

@@ -14,18 +14,20 @@ function Herosection({ img }) {
   return (
     <div>
       <div className="Header-Desktop">
-      <div className="slang-image">
-           <img src={SlangImage} alt="slang image"></img>
-          </div>
-          <div>
-              <button className="Order-now"> Order Now </button>
-            </div>
-          <div className="Hero-image">
-           <img src={Image} alt="pet image"></img>
-          </div>
-           
-          </div>
-      
+        <div className="slang-image">
+          <img src={SlangImage} alt="slang image"></img>
+        </div>
+        <div>
+          <Link to="/ProductPage">
+            <button className="Order-now"> Order Now </button>
+          </Link>
+        </div>
+        <div className="Hero-image">
+          <img src={Image} alt="pet image"></img>
+        </div>
+
+      </div>
+
 
       {/* <div className="Hero-Mobile">
         <div className="Mobile">

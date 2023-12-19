@@ -97,7 +97,7 @@ function LoginForm() {
       const userData = response.data;
       console.log(response.data);
       navigate("/");
-      // localStorage.setItem('user', JSON.stringify(userData));
+      sessionStorage.setItem("authToken", userData.token);
       //     dispatch({ type: 'LOGIN', payload: userData });
 
       // if (role.toLowerCase() == "admin") {
@@ -112,6 +112,9 @@ function LoginForm() {
       //   );
       // }
     } catch (error) {
+      if (error?.response?.data?.error) {
+        alert(error.response.data.error);
+      }
       console.error("Error while logging in:", error);
     }
   };

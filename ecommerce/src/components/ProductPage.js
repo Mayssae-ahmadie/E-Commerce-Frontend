@@ -13,7 +13,6 @@ import dog from '../images/Dog.png';
 
 const AllProductPage = () => {
     const [productData, setProductData] = useState([]);
-    const [selectedProduct, setSelectedProduct] = useState();
     const navigate = useNavigate();
 
     const fetchProductData = () => {
@@ -30,43 +29,27 @@ const AllProductPage = () => {
         fetchProductData();
     }, []);
 
-    const cart = {
-        userId: getUserID,
-        products: [
-            {
-                productId: selectedProduct ? selectedProduct._id : "",
-                quantity: 1,
-            },
-        ],
-    };
-
-    const addToCart = (cart, productIdToAdd) => {
-        const existingProduct = cart.products.find(product => product.productId === productIdToAdd);
-
-        if (existingProduct) {
-            existingProduct.quantity += 1;
-        } else {
-            cart.products.push({
-                productId: productIdToAdd,
-                quantity: 1,
-            });
-        }
-    };
-
     const handleAddToCart = async (product) => {
+        console.log(product)
         try {
-            const userId = getUserID;
-            addToCart(cart, product._id);
-
-            const response = await axios.post('http://localhost:5000/cart/addProduct', {
+            const userId = getUserID();
+            console.log(userId)
+            const updatedCart = {
                 userId: userId,
-                products: cart.products,
-            });
+                products: [
+                    {
+                        productId: product._id,
+                        quantity: 1,
+                    },
+                ],
+            };
+
+            const response = await axios.post('http://localhost:5000/cart/addProduct', updatedCart);
+
 
             if (response.data.success) {
-                setSelectedProduct(product);
-                navigate('/cart');
                 console.log('Product added to cart successfully');
+                navigate('/CartPage');
             } else {
                 console.error('Error adding product to cart:', response.data.message);
             }

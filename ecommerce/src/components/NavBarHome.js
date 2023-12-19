@@ -7,36 +7,40 @@ import { Link } from "react-router-dom";
 const NavBarHome = () => {
   return (
 
-      <div className="nav-bar">
-        <div className="Logo">
-           <img src={Logo} alt="logo icon"></img>
-        </div>
-        <div className="Links">
-          <ul>
-            <li>
-              <a href="#About" className="">About</a>
-            </li>
-            <li>
-              <a href="/Products" className="">Products</a>
-            </li>
-            <li>
-              <a href="#Services" className="">Services</a>
-            </li>
-            <li>
-              <a href="#Contact" className="">Contact us</a>
-            </li>
-            <li>
-              <img src={Vector} className="search-icon" alt="search icon"></img>
-            </li>
-            <li>
-              <img src={CartImage} className="cart-icon" alt="cart-icon"></img>
-            </li>
-          </ul>
-        </div>
-        <div className="Login">
-          <Link to='/login' className="login-btn">Log in</Link>
-        </div>
+    <div className="nav-bar">
+      <div className="Logo">
+        <Link to="/">
+          <img src={Logo} alt="logo icon"></img>
+        </Link>
       </div>
+      <div className="Links">
+        <ul>
+          <li>
+            <a href="#About" className="">About</a>
+          </li>
+          <li>
+            <a href="/ProductPage" className="">Products</a>
+          </li>
+          <li>
+            <a href="#Services" className="">Services</a>
+          </li>
+          <li>
+            <a href="#Contact" className="">Contact us</a>
+          </li>
+          <li>
+            <img src={Vector} className="search-icon" alt="search icon"></img>
+          </li>
+          <li>
+            <Link to='/CartPage'>
+              <img src={CartImage} className="cart-icon" alt="cart-icon"></img>
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <div className="Login">
+        <Link to='/login' className="login-btn">Log in</Link>
+      </div>
+    </div>
 
 
 

@@ -6,6 +6,7 @@ import HeroProductPage from "../images/Hero-productPage.png";
 import Footerproductcart from "./Footerproductcart";
 import "./styles/Herosection2.css";
 import axios from 'axios';
+import { getUserID } from './Util/GetUserData';
 
 const SingleProductPage = () => {
     const [product, setProduct] = useState(null);
@@ -36,21 +37,27 @@ const SingleProductPage = () => {
         }
     };
 
-    const handleAddToCart = async () => {
+    const handleAddToCart = async (product) => {
+        console.log(product)
         try {
-            const response = await axios.post('http://localhost:5000/cart/addProduct', {
-                userId: 'user._id',
+            const userId = getUserID();
+            console.log(userId)
+            const updatedCart = {
+                userId: userId,
                 products: [
                     {
                         productId: product._id,
-                        quantity: quantity,
+                        quantity: 1,
                     },
                 ],
-            });
+            };
+
+            const response = await axios.post('http://localhost:5000/cart/addProduct', updatedCart);
+
 
             if (response.data.success) {
-                navigate('/cart');
                 console.log('Product added to cart successfully');
+                navigate('/CartPage');
             } else {
                 console.error('Error adding product to cart:', response.data.message);
             }
@@ -109,6 +116,11 @@ const SingleProductPage = () => {
                                 <button onClick={handleAddToCart} className="bg-blue-500 text-white px-4 ml-4">Add to Cart</button>
                             </div>
                         </div>
+                    </div>
+
+                    <div className="text-center text-5xl flex items-center justify-center gap-8">
+                        <p className="" style={{ color: "#FFB551" }}> Where style meets </p>
+                        <p className="mt-10" style={{ color: "#2EC4B6" }}> wagging tails </p>
                     </div>
                 </div>
             )}
