@@ -5,8 +5,8 @@ import SlangImage from "../images/Your Pet-Priority.png";
 import HeroProductPage from "../images/Hero-productPage.png";
 import Footerproductcart from "./footerproductcart";
 import "./styles/Herosection2.css";
-import axios from "axios";
-import { getUserID } from "./Util/GetUserData";
+import axios from 'axios';
+import { getUserID } from './Util/GetUserData';
 
 const SingleProductPage = () => {
   const handlelogout = () => {
@@ -88,92 +88,49 @@ const SingleProductPage = () => {
         </div>
       </div>
 
-      {product && (
-        <div>
-          <h1
-            className="text-center text-4xl font-lilita pt-20"
-            style={{ color: "#2EC4B6" }}
-          >
-            Product Details
-          </h1>
-          <div className="flex justify-center content-around gap-20 mt-10">
-            <div
-              className="justify-center items-center border-2 border-orange-500 rounded-3xl ml-10"
-              style={{ borderColor: "FFB551" }}
-            >
-              <div>
-                {product.discountPercentage > 0 && (
-                  <p className="product-discount">
-                    Discount: {product.discountPercentage}%
-                  </p>
-                )}
-              </div>
-              <img
-                src={product.productImage}
-                className="mx-auto w-64 h-64 p-5"
-                alt={product.productName}
-              />
-            </div>
-            <div>
-              <div
-                className="text-left text-xl font-lilita"
-                style={{ color: "#2EC4B6" }}
-              >
-                <h2>{product.productName}</h2>
-                <p> By: {product.productBrand}</p>
-                <p> Category: {product.category}</p>
-                <p> Description: {product.productDescription}</p>
-              </div>
-              <div>
-                <p
-                  className="text-center text-xl font-lilita pt-5"
-                  style={{ color: "#2EC4B6" }}
-                >
-                  {product.stock > 0 ? "Available In Stock" : "Out of Stock"}
-                </p>
-              </div>
-              <div>
-                <p className=""> ${product.price}</p>
-              </div>
-              <div className="flex items-center mt-4">
-                <label htmlFor="quantity" className="mr-2">
-                  Quantity:
-                </label>
-                <button
-                  onClick={handleDecreaseQuantity}
-                  className="bg-gray-200 px-2"
-                >
-                  -
-                </button>
-                <span className="mx-2">{quantity}</span>
-                <button
-                  onClick={handleIncreaseQuantity}
-                  className="bg-gray-200 px-2"
-                >
-                  +
-                </button>
-                <button
-                  onClick={handleAddToCart}
-                  className="bg-blue-500 text-white px-4 ml-4"
-                >
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
+            {product && (
+                <div>
+                    <h1 className="text-center text-4xl font-lilita pt-20" style={{ color: "#2EC4B6" }}>Product Details</h1>
+                    <div className="flex justify-center content-around gap-20 mt-10">
+                        <div className="justify-center items-center border-2 border-orange-500 rounded-3xl ml-10" style={{ borderColor: "FFB551" }}>
+                            <div>
+                                {product.discountPercentage > 0 && (
+                                    <p className="product-discount">Discount: {product.discountPercentage}%</p>
+                                )}
+                            </div>
+                            <img src={product.productImage} className="mx-auto w-64 h-64 p-5" alt={product.productName} />
+                        </div>
+                        <div>
+                            <div className="text-left text-xl font-lilita" style={{ color: "#2EC4B6" }}>
+                                <h2 >{product.productName}</h2>
+                                <p> By: {product.productBrand}</p>
+                                <p> Category: {product.category}</p>
+                                <p> Description: {product.productDescription}</p>
+                            </div>
+                            <div>
+                                <p className="text-center text-xl font-lilita pt-5" style={{ color: "#2EC4B6" }}>
+                                    {product.stock > 0 ? "Available In Stock" : "Out of Stock"}
+                                </p>
+                            </div>
+                            <div>
+                                <p className=""> ${product.price}</p>
+                            </div>
+                            <div className="flex items-center mt-4">
+                                <label htmlFor="quantity" className="mr-2">Quantity:</label>
+                                <button onClick={handleDecreaseQuantity} className="bg-gray-200 px-2">-</button>
+                                <span className="mx-2">{quantity}</span>
+                                <button onClick={handleIncreaseQuantity} className="bg-gray-200 px-2">+</button>
+                                <button onClick={handleAddToCart} className="bg-blue-500 text-white px-4 ml-4">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
 
-          <div className="text-center text-5xl flex items-center justify-center gap-8">
-            <p className="" style={{ color: "#FFB551" }}>
-              {" "}
-              Where style meets{" "}
-            </p>
-            <p className="mt-10" style={{ color: "#2EC4B6" }}>
-              {" "}
-              wagging tails{" "}
-            </p>
-          </div>
-        </div>
-      )}
+                    <div className="text-center text-5xl flex items-center justify-center gap-8">
+                        <p className="" style={{ color: "#FFB551" }}> Where style meets </p>
+                        <p className="mt-10" style={{ color: "#2EC4B6" }}> wagging tails </p>
+                    </div>
+                </div>
+            )}
 
       <Footerproductcart />
     </div>

@@ -7,6 +7,7 @@ import instagram from "../images/instagram-icon.png"
 import linkedin from "../images/linkedin-icon.png"
 import footerimage from "../images/Footer-image.png"
 import { getUserRole } from "./Util/GetUserData";
+import './styles/Responsive.css';
 
 function Footerhomepage() {
     const navigate = useNavigate();
