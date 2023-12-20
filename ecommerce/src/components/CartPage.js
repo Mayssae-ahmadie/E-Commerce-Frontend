@@ -30,7 +30,7 @@ const CartPage = () => {
       // };
 
       const response = await axios.get(
-        `http://localhost:5000/cart/getCart/${userId}`
+        `https://paw-sitive.onrender.com/cart/getCart/${userId}`
       );
       console.log(response.data.data);
       if (response.data.success) {
@@ -56,22 +56,22 @@ const CartPage = () => {
   const handleCheckout = async () => {
     const userId = getUserID();
     const response = await axios.delete(
-      `http://localhost:5000/cart/delete/${userId}`
+      `https://paw-sitive.onrender.com/cart/delete/${userId}`
     );
     if (response.data.success === true) {
       console.log(cartData);
       const newStock = cartData.stock - 1;
       console.log(newStock);
       const response = await axios.put(
-        `http://localhost:5000/products/update/${cartData._id}`,
-        {stock: newStock }
+        `https://paw-sitive.onrender.com/products/update/${cartData._id}`,
+        { stock: newStock }
       );
       if (response.data.success === true) {
         alert("Checkout successful! Thank you for your order.");
         setCartData([]);
         setTotalPrice(0);
         setCheckoutStatus("success");
-        navigate('/');
+        navigate("/");
       }
     } else {
       alert("Could not purchase!");

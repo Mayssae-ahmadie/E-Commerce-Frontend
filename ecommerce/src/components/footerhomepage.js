@@ -1,15 +1,23 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './styles/footerhomepage.css';
 import facebook from "../images/facebook-icon.png"
 import instagram from "../images/instagram-icon.png"
 import linkedin from "../images/linkedin-icon.png"
 import footerimage from "../images/Footer-image.png"
+import { getUserRole } from "./Util/GetUserData";
 
 function Footerhomepage() {
+    const navigate = useNavigate();
+    const role = getUserRole();
     const form = useRef();
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+    const goToDashboard = ()=>{
+        if(role === "admin"){navigate("/admin/*")
+    } else if (role === "seller"){navigate("/seller/*")}
+    window.location.reload();
+}
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -114,7 +122,7 @@ function Footerhomepage() {
                 </div>
             </div>
             <div className="footer-copyright">
-                <p id="copyright">© 2023 All rights reserved</p>
+                <p id="copyright" onClick={goToDashboard}>© 2023 All rights reserved</p>
             </div>
         </div>
     );

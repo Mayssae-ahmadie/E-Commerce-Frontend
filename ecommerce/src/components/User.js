@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getAllUsers = async () => {
   try {
-    const response = await axios.get(`http://localhost:5000/users/getAll`);
+    const response = await axios.get(`https://paw-sitive.onrender.com/users/getAll`);
     return response.data.users;
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -13,7 +13,7 @@ export const getAllUsers = async () => {
 export const getUserById = async (Id) => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/users/findOneById/${Id}`
+      `https://paw-sitive.onrender.com/users/findOneById/${Id}`
     );
     return response.data.user;
   } catch (error) {
@@ -25,7 +25,7 @@ export const getUserById = async (Id) => {
 export const getUsersByRole = async (role) => {
   try {
     const response = await axios.post(
-      `http://localhost:5000/users/findByRole`,
+      `https://paw-sitive.onrender.com/users/findByRole`,
       { role }
     );
     return response.data.users;
@@ -37,7 +37,7 @@ export const getUsersByRole = async (role) => {
 
 export const login = async (email, password) => {
   try {
-    const response = await axios.post(`http://localhost:5000/users/login`, {
+    const response = await axios.post(`https://paw-sitive.onrender.com/users/login`, {
       email,
       password,
     });
@@ -64,7 +64,7 @@ export const register = async (
   };
   try {
     const response = await axios.post(
-      `http://localhost:5000/users/register`,
+      `https://paw-sitive.onrender.com/users/register`,
       newUser
     );
     return response.data.user;
@@ -85,7 +85,7 @@ export const register = async (
 
 export const deleteUser = async (Id) => {
   try {
-    await axios.delete(`http://localhost:5000/users/deleteById/${Id}`);
+    await axios.delete(`https://paw-sitive.onrender.com/users/deleteById/${Id}`);
     return Id;
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -110,7 +110,7 @@ export const updateUser = async (
   };
   try {
     const response = await axios.put(
-      `http://localhost:5000/users/updateUser/${Id}`,
+      `https://paw-sitive.onrender.com/users/updateUser/${Id}`,
       updatedUser
     );
     return { user: response.data.user, Id };
