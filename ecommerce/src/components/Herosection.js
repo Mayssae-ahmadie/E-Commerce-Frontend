@@ -27,6 +27,7 @@ function Herosection({ img }) {
         </div>
 
       </div>
+      
 
 
       {/* <div className="Hero-Mobile">
