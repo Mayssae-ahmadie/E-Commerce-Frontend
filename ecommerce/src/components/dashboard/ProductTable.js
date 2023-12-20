@@ -173,12 +173,12 @@ const ProductTable = () => {
         </thead>
         <tbody>
           {products.map((product) => (
-            <tr className="venue-table" key={product.ID}>
-              <td>{product.ID}</td>
+            <tr className="venue-table" key={product._id}>
+              <td>{product._id}</td>
               <td>{product.productName}</td>
               <td>{product.productBrand}</td>
               <td>
-                <img src={product.image} alt={product.productName} />
+                <img src={product.productImage} alt={product.productName} />
               </td>
               <td>{product.productDescription}</td>
               <td>{product.price}</td>
@@ -197,7 +197,7 @@ const ProductTable = () => {
                 <button
                   className="button button-secondary"
                   onClick={() => {
-                    handleDeleteProduct(product.ID);
+                    handleDeleteProduct(product._id);
                   }}
                 >
                   Delete

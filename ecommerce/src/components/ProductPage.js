@@ -3,13 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import NavBarProduct from "./NavBarProduct";
 import SlangImage from "../images/Your Pet-Priority.png";
 import HeroProductPage from "../images/Hero-productPage.png";
-import Footerproductcart from "./Footerproductcart";
+import Footerproductcart from "./footerproductcart";
 import { getUserID } from './Util/GetUserData';
 import "./styles/Herosection2.css";
 import axios from 'axios';
 import add from '../images/Add.png';
 import cat from '../images/Cat.png';
 import dog from '../images/Dog.png';
+
 
 const AllProductPage = () => {
     const [productData, setProductData] = useState([]);
@@ -45,7 +46,7 @@ const AllProductPage = () => {
             };
 
             const response = await axios.post('http://localhost:5000/cart/addProduct', updatedCart);
-
+            console.log(response.data);
 
             if (response.data.success) {
                 console.log('Product added to cart successfully');

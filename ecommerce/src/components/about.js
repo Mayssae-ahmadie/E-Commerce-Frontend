@@ -3,7 +3,7 @@ import paws from '../images/Paws.png'
 
 const AboutUs = () => {
     return (
-        <div className='relative'>
+        <div className='relative' id="About">
             <img className="absolute h-48 -top-20" src={paws} alt="Paws" />
 
             <h2 className="text-center text-4xl mb-10" style={{ color: "#FFB551" }}> ABOUT US</h2>

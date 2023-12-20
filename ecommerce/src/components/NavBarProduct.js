@@ -5,6 +5,8 @@ import CartImage from "../images/cart-image.png";
 import { Link } from "react-router-dom";
 
 const NavBarProduct = () => {
+      const token = sessionStorage.getItem('authToken')
+  const handlelogout = () => {sessionStorage.removeItem('authToken')}
   return (
 
     <div className="nav-bar2">
@@ -38,7 +40,11 @@ const NavBarProduct = () => {
         </ul>
       </div>
       <div className="Login2">
+      {token? 
+        <Link to='/' className="login-btn2" onClick={handlelogout}>Log out</Link>
+        :
         <Link to='/login' className="login-btn2">Log in</Link>
+      }
       </div>
     </div>
 

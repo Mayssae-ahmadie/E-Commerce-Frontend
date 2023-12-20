@@ -1,8 +1,12 @@
 import "./styles/NavBar.css";
 import Logo from "../images/Logo.png";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+
 
 const NavBarHome = () => {
+  const [section, setSection] = useState('')
+  const handlelogout = () => {sessionStorage.removeItem('authToken')}
   return (
 
       <div className="nav-bar4">
@@ -12,16 +16,16 @@ const NavBarHome = () => {
         <div className="Links4">
           <ul>
             <li>
-              <a href="#Users" className="">Users</a>
+              <Link to="/UserTable" className="">Users</Link>
             </li>
             <li>
-              <a href="#Products" className="">Products</a>
+              <Link to="/ProductTable" className="">Products</Link>
             </li>
             <li>
-              <a href="#Orders" className="">Orders</a>
+              <Link to="/OrderTable" className="">Orders</Link>
             </li>
             <li>
-              <a href="#Logout" className="">Logout</a>
+              <Link to="/login" onClick={handlelogout} className="">Logout</Link>
             </li>
           </ul>
         </div>

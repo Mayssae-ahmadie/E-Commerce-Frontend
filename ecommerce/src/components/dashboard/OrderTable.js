@@ -139,20 +139,20 @@ const OrderTable = () => {
             <th>Total Quantity</th>
             <th>Total Price</th>
             <th>Payment</th>
-            <th>Product</th>
+            <th>Product ID</th>
             <th>Order Status</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {orders.map((order) => (
-            <tr key={order.ID}>
-              <td>{order.ID}</td>
-              <td>{order.user_id}</td>
+            <tr key={order._id}>
+              <td>{order._id}</td>
+              <td>{order.userId}</td>
               <td>{order.totalQuantity}</td>
               <td>{order.totalPrice}</td>
               <td>{order.payment}</td>
-              <td>{order.product}</td>
+              <td>{order.products[0].productId}</td>
               <td>{order.orderStatus}</td>
               <td>
                 <button

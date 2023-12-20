@@ -3,12 +3,13 @@ import { useParams, useNavigate } from "react-router-dom";
 import NavBarProduct from "./NavBarProduct";
 import SlangImage from "../images/Your Pet-Priority.png";
 import HeroProductPage from "../images/Hero-productPage.png";
-import Footerproductcart from "./Footerproductcart";
+import Footerproductcart from "./footerproductcart";
 import "./styles/Herosection2.css";
 import axios from 'axios';
 import { getUserID } from './Util/GetUserData';
 
 const SingleProductPage = () => {
+    const handlelogout = () => {sessionStorage.removeItem('authToken')}
     const [product, setProduct] = useState(null);
     const [quantity, setQuantity] = useState(1);
     const navigate = useNavigate();

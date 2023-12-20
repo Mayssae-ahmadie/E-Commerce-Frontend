@@ -12,7 +12,7 @@ export const getUserRole = () => {
   }
   return null;
 };
-export const getUserid = () => {
+export const getUserID = () => {
   try {
     const token = sessionStorage.getItem("authToken");
     if (token) {

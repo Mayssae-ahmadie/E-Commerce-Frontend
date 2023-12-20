@@ -3,6 +3,7 @@ import Logo from "../images/Logo.png";
 import { Link } from "react-router-dom";
 
 const NavBarHome = () => {
+  const handlelogout = () => {sessionStorage.removeItem('authToken')}
   return (
 
       <div className="nav-bar4">
@@ -18,7 +19,7 @@ const NavBarHome = () => {
               <a href="#Orders" className="">Orders</a>
             </li>
             <li>
-              <a href="#Logout" className="">Logout</a>
+            <Link to="/login" onClick={handlelogout} className="">Logout</Link>
             </li>
           </ul>
         </div>
