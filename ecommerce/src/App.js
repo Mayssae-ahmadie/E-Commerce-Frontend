@@ -20,7 +20,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/ProductPage" element={<ProductPage />} />
-        <Route path="/SingleProductPage/:id" element={token && <SingleProductPage />} />
+        <Route path="/SingleProductPage/:id" element={<SingleProductPage />} />
         <Route path="/CartPage" element={role === 'user' && <CartPage />} />
         <Route path="/admin/*" element={(role === 'admin') ? <AdminDashboard />: <HomePage/>} />
         <Route path="/seller/*" element={(role === 'seller') ? <SellerDashboard />: <HomePage/>} />
