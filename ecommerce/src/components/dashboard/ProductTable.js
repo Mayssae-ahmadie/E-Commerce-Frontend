@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../styles/styles.css"
+import "../styles/styles.css";
 import axios from "axios";
 const ProductTable = () => {
   const [products, setProducts] = useState([]);
@@ -15,8 +15,6 @@ const ProductTable = () => {
   const [category, setCategory] = useState("");
   const [stock, setStock] = useState("");
   const [discountPercentage, setDiscountPercentage] = useState("");
-  
-  
 
   useEffect(() => {
     fetchProducts();
@@ -24,7 +22,7 @@ const ProductTable = () => {
 
   const fetchProducts = () => {
     axios
-      .get("http://localhost:5000/products/getAll")
+      .get("https://paw-sitive.onrender.com/products/getAll")
       .then((response) => {
         console.log(response);
         setProducts(response.data.data);
@@ -38,13 +36,12 @@ const ProductTable = () => {
     setProductImage(e.target.files[0]);
   };
 
-
   const handleDeleteProduct = async (productID) => {
     const token = sessionStorage.getItem("authToken");
     const headers = { Authorization: `Bearer ${token}` };
     try {
       const response = await axios.delete(
-        `http://localhost:5000/products/delete/${productID}`,
+        `https://paw-sitive.onrender.com/products/delete/${productID}`,
         {
           headers,
         }
@@ -70,11 +67,14 @@ const ProductTable = () => {
     formData.append("stock", stock);
     formData.append("discountPercentage", discountPercentage);
 
-
     try {
-      await axios.post("http://localhost:5000/products/add", formData, {
-        headers,
-      });
+      await axios.post(
+        "https://paw-sitive.onrender.com/products/add",
+        formData,
+        {
+          headers,
+        }
+      );
 
       fetchProducts();
       setShowAddModal(false);
@@ -83,7 +83,8 @@ const ProductTable = () => {
     }
   };
 
-  const handleUpdateProductClickButton = (product) => {
+  const handleUpdateProductClickButton = (e,product) => {
+    e.preventDefault();
     setSelectedProduct(product);
     setProducts(product.products);
     setProductName(product.productName);
@@ -91,12 +92,14 @@ const ProductTable = () => {
     setProductImage(product.productImage);
     setProductDescription(product.productDescription);
     setPrice(product.price);
-    setCategory(product.category.toString());
-    setStock(product.stock.toString());
-    setDiscountPercentage(product.discountPercentage.toString());
+    setCategory(product.category);
+    setStock(product.stock);
+    setDiscountPercentage(product.discountPercentage);
     setShowUpdateModal(true);
   };
-  const handleUpdateProduct = async () => {
+  console.log('selectedProduct', selectedProduct)
+  const handleUpdateProduct = async (e, selectedProduct) => {
+    e.preventDefault();
     const token = sessionStorage.getItem("authToken");
     const headers = { Authorization: `Bearer ${token}` };
 
@@ -104,15 +107,18 @@ const ProductTable = () => {
     formData.append("productName", productName);
     formData.append("productBrand", productBrand);
     formData.append("productDescription", productDescription);
-    if (productImage) formData.append("image", productImage);
+    formData.append("image", productImage);
     formData.append("price", price);
     formData.append("category", category);
     formData.append("stock", stock);
     formData.append("discountPercentage", discountPercentage);
     try {
+      console.log(productName, productBrand, productDescription, productImage, price, category, stock, discountPercentage);
       await axios.put(
-        `http://localhost:5000/products/update/${selectedProduct.ID}`,
-        formData,
+        `https://paw-sitive.onrender.com/products/update/${selectedProduct._id}`,
+        {formData
+          
+        },
         {
           headers,
         }
@@ -130,7 +136,7 @@ const ProductTable = () => {
   const toggleSort = (field) => {
     const newSortedProducts = [...products].sort((a, b) => {
       // if(a[field]< b[field]) return -1 aw 1 if i want sortOrder true aw false
-      
+
       if (a[field] < b[field]) return sortOrder ? -1 : 1;
 
       if (a[field] > b[field]) return sortOrder ? 1 : -1;
@@ -172,13 +178,13 @@ const ProductTable = () => {
           </tr>
         </thead>
         <tbody>
-          {products.map((product) => (
-            <tr className="venue-table" key={product.ID}>
-              <td>{product.ID}</td>
+          {products && products.map((product) => (
+            <tr className="venue-table" key={product._id}>
+              <td>{product._id}</td>
               <td>{product.productName}</td>
               <td>{product.productBrand}</td>
               <td>
-                <img src={product.image} alt={product.productName} />
+                <img src={product.productImage} alt={product.productName} />
               </td>
               <td>{product.productDescription}</td>
               <td>{product.price}</td>
@@ -188,8 +194,8 @@ const ProductTable = () => {
               <td>
                 <button
                   className="button button-primary"
-                  onClick={() => {
-                    handleUpdateProductClickButton(product);
+                  onClick={(e) => {
+                    handleUpdateProductClickButton(e,product);
                   }}
                 >
                   Update
@@ -197,7 +203,7 @@ const ProductTable = () => {
                 <button
                   className="button button-secondary"
                   onClick={() => {
-                    handleDeleteProduct(product.ID);
+                    handleDeleteProduct(product._id);
                   }}
                 >
                   Delete
@@ -279,7 +285,10 @@ const ProductTable = () => {
               />
             </div>
 
-            <button className="button button-primary" onClick={handleAddProduct}>
+            <button
+              className="button button-primary"
+              onClick={handleAddProduct}
+            >
               Add Product
             </button>
           </div>
@@ -305,6 +314,30 @@ const ProductTable = () => {
                 value={productName}
                 onChange={(e) => setProductName(e.target.value)}
                 placeholder="Product Name"
+              />
+            </div>
+            <div className="form-input">
+              <input
+                type="text"
+                value={productBrand}
+                onChange={(e) => setProductBrand(e.target.value)}
+                placeholder="Product Brand"
+              />
+            </div>
+            <div className="form-input">
+              <input
+                type="text"
+                value={stock}
+                onChange={(e) => setStock(e.target.value)}
+                placeholder="Stock"
+              />
+            </div>
+            <div className="form-input">
+              <input
+                type="text"
+                value={discountPercentage}
+                onChange={(e) => setDiscountPercentage(e.target.value)}
+                placeholder="Discount Percentage"
               />
             </div>
             <div className="form-input">
@@ -336,7 +369,7 @@ const ProductTable = () => {
 
             <button
               className="button button-primary"
-              onClick={handleUpdateProduct}
+              onClick={(e)=>handleUpdateProduct(e,selectedProduct)}
             >
               Update Product
             </button>

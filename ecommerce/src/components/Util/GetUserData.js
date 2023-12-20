@@ -1,26 +1,26 @@
 import { jwtDecode } from "jwt-decode";
 
 export const getUserRole = () => {
-    try {
-        const token = sessionStorage.getItem("authToken");
-        if (token) {
-            const decodedToken = jwtDecode(token);
-            return decodedToken.role;
-        }
-    } catch (error) {
-        console.error("Error decoding token:", error);
+  try {
+    const token = sessionStorage.getItem("authToken");
+    if (token) {
+      const decodedToken = jwtDecode(token);
+      return decodedToken.role;
     }
-    return null;
+  } catch (error) {
+    console.error("Error decoding token:", error);
+  }
+  return null;
 };
-export const getUserid = () => {
-    try {
-        const token = sessionStorage.getItem("authToken");
-        if (token) {
-            const decodedToken = jwtDecode(token);
-            return decodedToken.id;
-        }
-    } catch (error) {
-        console.error("Error decoding token:", error);
+export const getUserID = () => {
+  try {
+    const token = sessionStorage.getItem("authToken");
+    if (token) {
+      const decodedToken = jwtDecode(token);
+      return decodedToken.id;
     }
-    return null;
+  } catch (error) {
+    console.error("Error decoding token:", error);
+  }
+  return null;
 };

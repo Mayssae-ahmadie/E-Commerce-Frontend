@@ -14,8 +14,8 @@ const OrderTable = () => {
   const [error, setError] = useState(null);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
-//   const [venues, setVenues] = useState([]);
-//   const [venueID, setVenueID] = useState("");
+  //   const [venues, setVenues] = useState([]);
+  //   const [venueID, setVenueID] = useState("");
 
   useEffect(() => {
     fetchOrders();
@@ -33,7 +33,7 @@ const OrderTable = () => {
 
   const fetchOrders = async () => {
     axios
-      .get("http://localhost:5000/orders/getAll")
+      .get("https://paw-sitive.onrender.com/orders/getAll")
       .then((response) => {
         console.log(response);
         setOrders(response.data.data);
@@ -45,7 +45,7 @@ const OrderTable = () => {
 
   const fetchProducts = async () => {
     axios
-      .get("http://localhost:5000/products/getAll")
+      .get("https://paw-sitive.onrender.com/products/getAll")
       .then((response) => {
         console.log(response);
         setProducts(response.data.data);
@@ -63,7 +63,7 @@ const OrderTable = () => {
 
     try {
       await axios.post(
-        "http://localhost:5000/orders/add",
+        "https://paw-sitive.onrender.com/orders/add",
         { totalQuantity, totalPrice, payment, orderStatus },
         { headers }
       );
@@ -92,7 +92,7 @@ const OrderTable = () => {
 
     try {
       await axios.put(
-        `http://localhost:5000/orders/update/${selectedOrder.ID}`,
+        `https://paw-sitive.onrender.com/orders/update/${selectedOrder.ID}`,
         { totalQuantity, totalPrice, payment, orderStatus },
         { headers }
       );
@@ -108,9 +108,12 @@ const OrderTable = () => {
     const headers = { Authorization: `Bearer ${token}` };
 
     try {
-      await axios.delete(`http://localhost:5000/orders/delete/${orderID}`, {
-        headers,
-      });
+      await axios.delete(
+        `https://paw-sitive.onrender.com/orders/delete/${orderID}`,
+        {
+          headers,
+        }
+      );
 
       fetchOrders();
     } catch (error) {
@@ -139,20 +142,20 @@ const OrderTable = () => {
             <th>Total Quantity</th>
             <th>Total Price</th>
             <th>Payment</th>
-            <th>Product</th>
+            <th>Product ID</th>
             <th>Order Status</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {orders.map((order) => (
-            <tr key={order.ID}>
-              <td>{order.ID}</td>
-              <td>{order.user_id}</td>
+            <tr key={order._id}>
+              <td>{order._id}</td>
+              <td>{order.userId}</td>
               <td>{order.totalQuantity}</td>
               <td>{order.totalPrice}</td>
               <td>{order.payment}</td>
-              <td>{order.product}</td>
+              <td>{order.products[0].productId}</td>
               <td>{order.orderStatus}</td>
               <td>
                 <button

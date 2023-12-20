@@ -1,7 +1,7 @@
 import axios from "axios";
 import "../styles/styles.css";
 import { useEffect, useState } from "react";
-import { getUserid } from "../Util/GetUserData"
+import { getUserID } from "../Util/GetUserData";
 
 const UserTable = () => {
   const [users, setUsers] = useState([]);
@@ -19,7 +19,6 @@ const UserTable = () => {
     fetchUsers();
   }, []);
 
-
   const handleAddUser = async () => {
     const token = sessionStorage.getItem("authToken");
     const headers = { Authorization: `Bearer ${token}` };
@@ -32,11 +31,14 @@ const UserTable = () => {
     formData.append("phoneNumber", phoneNumber);
     formData.append("address", address);
 
-
     try {
-      await axios.post("http://localhost:5000/users/register", formData, {
-        headers,
-      });
+      await axios.post(
+        "https://paw-sitive.onrender.com/users/register",
+        formData,
+        {
+          headers,
+        }
+      );
 
       fetchUsers();
       // setShowAddModal(false);
@@ -47,7 +49,7 @@ const UserTable = () => {
 
   const fetchUsers = () => {
     axios
-      .get("http://localhost:5000/users/getAll")
+      .get("https://paw-sitive.onrender.com/users/getAll")
       .then((response) => {
         console.log(response);
         setUsers(response.data.data);
@@ -69,7 +71,7 @@ const UserTable = () => {
     const headers = { Authorization: `Bearer ${token}` };
     try {
       await axios.put(
-        `http://localhost:5000/users/update/${selectedUser.ID}`,
+        `https://paw-sitive.onrender.com/users/update/${selectedUser.ID}`,
         { fullName, email },
         {
           headers,
@@ -89,7 +91,7 @@ const UserTable = () => {
 
     try {
       await axios.put(
-        `http://localhost:5000/users/switchToAdmin/${userID}`,
+        `https://paw-sitive.onrender.com/users/switchToAdmin/${userID}`,
         {},
         {
           headers,
@@ -104,11 +106,14 @@ const UserTable = () => {
   const handleDelete = async (userid) => {
     const token = sessionStorage.getItem("authToken");
     const headers = { Authorization: `Bearer ${token}` };
-      console.log(headers);
+    console.log(headers);
     try {
-      await axios.delete(`http://localhost:5000/users/delete/${userid}`, {
-        headers,
-      });
+      await axios.delete(
+        `https://paw-sitive.onrender.com/users/delete/${userid}`,
+        {
+          headers,
+        }
+      );
       fetchUsers();
     } catch (error) {
       setError(error);
@@ -159,7 +164,7 @@ const UserTable = () => {
                   onClick={() => {
                     handleDelete(user._id);
                   }}
-                  disabled={user.id === getUserid()}
+                  disabled={user.id === getUserID()}
                 >
                   Delete
                 </button>

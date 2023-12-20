@@ -72,7 +72,7 @@ function LoginForm() {
     };
     try {
       const response = await axios.post(
-        `http://localhost:5000/users/register`,
+        `https://paw-sitive.onrender.com/users/register`,
         newUser
       );
       const data = response.data;
@@ -90,7 +90,7 @@ function LoginForm() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:5000/users/login`, {
+      const response = await axios.post(`https://paw-sitive.onrender.com/users/login`, {
         email,
         password,
       });

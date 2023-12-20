@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const SignOut = () => {
+const Logout = () => {
     const navigate = useNavigate();
 
     const handleSignOut = () => {
@@ -17,4 +17,4 @@ const SignOut = () => {
     );
 }
 
-export default SignOut;
+export default Logout;

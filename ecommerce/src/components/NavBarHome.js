@@ -3,8 +3,12 @@ import Logo from "../images/Logo.png";
 import Vector from "../images/Vector.png";
 import CartImage from "../images/cart-image.png";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const NavBarHome = () => {
+  const token = sessionStorage.getItem('authToken')
+  const handlelogout = () => {sessionStorage.removeItem('authToken'); window.location.reload()};
+  useEffect(()=>{},[handlelogout])
   return (
 
     <div className="nav-bar">
@@ -38,8 +42,12 @@ const NavBarHome = () => {
         </ul>
       </div>
       <div className="Login">
+        {token? 
+        <Link to='/' className="login-btn" onClick={handlelogout}>Log out</Link>
+        :
         <Link to='/login' className="login-btn">Log in</Link>
-      </div>
+      }
+        </div>
     </div>
 
 
