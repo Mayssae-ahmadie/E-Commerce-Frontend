@@ -1,7 +1,7 @@
 import OrderTable from "./OrderTable";
 import ProductTable from "./ProductTable";
 // import SideBar from "../Sidebar";
-import Logo from "/Users/mohammadsafa/Desktop/E-Commerce-front/E-Commerce-Frontend/ecommerce/src/images/Logo.png";
+import Logo from "./Logo.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
