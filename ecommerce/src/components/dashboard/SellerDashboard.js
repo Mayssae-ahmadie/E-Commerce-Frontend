@@ -1,26 +1,26 @@
 import OrderTable from "./OrderTable";
 import ProductTable from "./ProductTable";
 // import SideBar from "../Sidebar";
-import Logo from "/Users/mohammadsafa/Desktop/E-Commerce-front/E-Commerce-Frontend/ecommerce/src/images/Logo.png";
+// import Logo from "ecommerce\src\images\Logo.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const SellerDashboard = () => {
   const [section, setSection] = useState('')
-    const handlelogout = () => {sessionStorage.removeItem('authToken')}
+  const handlelogout = () => { sessionStorage.removeItem('authToken') }
   return (
     <>
       <div className="nav-bar4">
-        <div className="Logo4">
-           <img src={Logo} alt="logo icon"></img>
-        </div>
+        {/* <div className="Logo4">
+          <img src={Logo} alt="logo icon"></img>
+        </div> */}
         <div className="Links4">
           <ul>
             <li>
-              <Link to="" onClick={()=>setSection('Products')} className="">Products</Link>
+              <Link to="" onClick={() => setSection('Products')} className="">Products</Link>
             </li>
             <li>
-              <Link to="" onClick={()=>setSection('Orders')} className="">Orders</Link>
+              <Link to="" onClick={() => setSection('Orders')} className="">Orders</Link>
             </li>
             <li>
               <Link to="/login" onClick={handlelogout} className="">Logout</Link>

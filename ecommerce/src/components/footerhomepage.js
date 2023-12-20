@@ -7,17 +7,19 @@ import instagram from "../images/instagram-icon.png"
 import linkedin from "../images/linkedin-icon.png"
 import footerimage from "../images/Footer-image.png"
 import { getUserRole } from "./Util/GetUserData";
+import './styles/Responsive.css';
 
 function Footerhomepage() {
     const navigate = useNavigate();
     const role = getUserRole();
     const form = useRef();
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-    const goToDashboard = ()=>{
-        if(role === "admin"){navigate("/admin/*")
-    } else if (role === "seller"){navigate("/seller/*")}
-    window.location.reload();
-}
+    const goToDashboard = () => {
+        if (role === "admin") {
+            navigate("/admin/*")
+        } else if (role === "seller") { navigate("/seller/*") }
+        window.location.reload();
+    }
 
     const sendEmail = (e) => {
         e.preventDefault();

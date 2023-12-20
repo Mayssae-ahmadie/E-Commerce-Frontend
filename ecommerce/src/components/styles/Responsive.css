@@ -2,4 +2,88 @@
 @media screen and (min-width:768px) and (max-width:1023px) {}
 
 /*Phone*/
-@media (max-width: 766px) {}
+@media (max-width: 766px) {
+    .about-paws {
+        height: 150px;
+        margin-top: 1.25rem;
+    }
+
+    .about-div1 {
+        display: block
+    }
+
+    .about-text {
+        font-size: large;
+    }
+
+    .about-div2 {
+        width: 100%;
+    }
+
+    .products-section {
+        display: block;
+    }
+
+    .products-image1 {
+        width: 150px;
+        height: 150px;
+        margin: auto;
+        padding-top: 20px;
+    }
+
+    .products-button {
+        margin: auto;
+        padding: 10px;
+        width: fit-content;
+        font-size: large;
+    }
+
+    .services-section {
+        display: block;
+        padding: 0;
+    }
+
+    .products-paws {
+        height: 160px;
+    }
+
+    .services-container {
+        width: 100%;
+        margin-top: 1%;
+        margin-bottom: 5%;
+    }
+
+    .products-text {
+        size: fit-content;
+        font-size: x-large;
+        gap: 0;
+    }
+
+    .products-grid {
+        grid-template-columns: 100%;
+    }
+
+    .products-image {
+        width: 90%;
+        height: 90%;
+    }
+
+    .single-product-info {
+        display: block;
+    }
+
+    .single-product-image {
+        padding: 0;
+        margin: 0;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .single-product-text {
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
+        margin-left: 5%;
+
+    }
+}

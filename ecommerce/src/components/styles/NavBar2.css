@@ -56,3 +56,84 @@
     margin: 1px 8px 15px;
     margin-right: 40px;
 }
+
+.NavBar-Product {
+    display: none;
+}
+
+@media (max-width: 766px) {
+    .nav-bar-desktop {
+        display: none;
+    }
+
+    .Mobile {
+        display: flex;
+    }
+
+    .NavBar-Product {
+        display: flex;
+        color: white;
+        padding-top: 5%;
+    }
+
+    .search-icon2 {
+        padding-left: 2%;
+        padding-top: 1%;
+        margin-left: 5%;
+    }
+
+    .cart-icon2 {
+        width: 50%;
+        padding-top: 14%;
+    }
+
+    .Logo2 {
+        scale: 2;
+        margin-left: 5%;
+        align-items: center;
+        padding-top: 1%;
+    }
+
+    .Mobile-Login {
+        margin-right: 5%;
+        width: 50px;
+        padding-top: 1%;
+    }
+
+    .Mobile-Burger {
+        background-color: transparent;
+        border: none;
+        color: white;
+        cursor: pointer;
+        width: 70px;
+        padding-left: 5%;
+    }
+
+    .Mobile-Navbar {
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        color: white;
+        display: flex;
+    }
+
+    .Mobile-Nav {
+        display: none;
+        flex-direction: column;
+    }
+
+    .Mobile-Nav.active {
+        display: flex;
+        position: absolute;
+        top: 75px;
+        left: -1px;
+        z-index: 1;
+        width: 100%;
+        align-items: center;
+        padding: 5px;
+        background: rgb(255, 181, 81);
+        opacity: 0.7;
+        border: none;
+        box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.27);
+    }
+}

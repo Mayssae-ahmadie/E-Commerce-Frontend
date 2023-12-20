@@ -13,3 +13,12 @@
     grid-column: span 2;
     margin-top: -5%;
 }
+
+@media (max-width: 766px) {
+
+    .footer-image2 {
+        padding-top: 10%;
+        padding-left: 7%;
+        width: 95%;
+    }
+}

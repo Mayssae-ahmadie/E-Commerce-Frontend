@@ -97,3 +97,32 @@
     color: white;
     padding-bottom: 2%;
 }
+
+@media (max-width: 766px) {
+    .footer-grid {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer-image {
+        padding-top: 10%;
+        padding-left: 7%;
+        width: 100%;
+    }
+
+    .footer-social {
+        margin-left: 25%;
+        margin-right: 20%;
+    }
+
+    .footer-social-header {
+        margin-top: 10%;
+    }
+
+    .footer-social-icons {
+        margin-left: 0%;
+        gap: 20%;
+        margin-bottom: 10%;
+    }
+}

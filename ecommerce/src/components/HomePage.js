@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "./NavBarHome";
+import NavBarHome from "./NavBarHome";
 import Herosection from "./Herosection";
 import AboutUs from "./about";
 import Products from "./Products";
@@ -9,7 +9,7 @@ import Footerhomepage from "./footerhomepage";
 const HomePage = () => {
   return (
     <div>
-      <NavBar />
+      <NavBarHome />
       <Herosection />
       <AboutUs />
       <Products />

@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
-import NavBarCart from "./NavBarCart";
-import Footerproductcart from "./footerproductcart";
-import SlangImage2 from "../images/Time-to-Pay.png";
-import CartImage2 from "../images/Time-to-Pay2.png";
-import "./styles/Herosection2.css";
-import { getUserID } from "./Util/GetUserData";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import NavBarCart from './NavBarCart';
+import Footerproductcart from './Footerproductcart';
+import SlangImage2 from '../images/Time-to-Pay.png';
+import CartImage2 from '../images/Time-to-Pay2.png';
+import './styles/Herosection2.css';
+import { getUserID } from '../Util/GetUserData';
 
 const CartPage = () => {
   const navigate = useNavigate();

@@ -26,3 +26,18 @@
     margin-bottom: 120px;
     margin-left: 120px;
 }
+
+@media (max-width: 766px) {
+    .Header-Desktop {
+        height: 180px;
+    }
+
+    .Hero-image img {
+        margin-top: 55%;
+    }
+
+    .Order-now {
+        margin-bottom: 100px;
+        margin-left: 5%;
+    }
+}
