@@ -35,7 +35,7 @@ function Footerproductcart() {
     });
 
     return (
-        <div className="footer-container-product-cart">
+        <div id='Contact2' className="footer-container-product-cart">
             <div className="footer-grid">
                 <div className="footer-column">
                     <img className="footer-image2" src={footerproductcart} alt="" />

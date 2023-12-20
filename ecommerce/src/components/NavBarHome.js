@@ -1,6 +1,6 @@
 import "./styles/NavBar.css";
 import Logo from "../images/Logo.png";
-import Vector from "../images/Vector.png";
+// import Vector from "../images/Vector.png";
 import CartImage from "../images/cart-image.png";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
@@ -23,7 +23,7 @@ const NavBarHome = () => {
             <a href="#About" className="">About</a>
           </li>
           <li>
-            <a href="/ProductPage" className="">Products</a>
+            <a href="#Product" className="">Products</a>
           </li>
           <li>
             <a href="#Services" className="">Services</a>
@@ -31,9 +31,9 @@ const NavBarHome = () => {
           <li>
             <a href="#Contact" className="">Contact us</a>
           </li>
-          <li>
+          {/* <li>
             <img src={Vector} className="search-icon" alt="search icon"></img>
-          </li>
+          </li> */}
           <li>
             <Link to='/CartPage'>
               <img src={CartImage} className="cart-icon" alt="cart-icon"></img>

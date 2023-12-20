@@ -1,6 +1,6 @@
 import "./styles/NavBar2.css";
 import Logo from "../images/Logo.png";
-import Vector from "../images/Vector.png";
+// import Vector from "../images/Vector.png";
 import CartImage from "../images/cart-image.png";
 import { Link } from "react-router-dom";
 
@@ -18,20 +18,24 @@ const NavBarProduct = () => {
       <div className="Links2">
         <ul>
           <li>
+          <Link to='/'>
             <a href="#About" className="">About</a>
+            </Link>
           </li>
           <li>
-            <a href="/Products" className="">Products</a>
+            <a href="#Products2" className="">Products</a>
           </li>
           <li>
+          <Link to='/'>
             <a href="#Services" className="">Services</a>
+            </Link>
           </li>
           <li>
-            <a href="#Contact" className="">Contact us</a>
+            <a href="#Contact2" className="">Contact us</a>
           </li>
-          <li>
+          {/* <li>
             <img src={Vector} className="search-icon2" alt="search icon"></img>
-          </li>
+          </li> */}
           <li>
             <Link to='/CartPage'>
               <img src={CartImage} className="cart-icon2" alt="cart-icon"></img>

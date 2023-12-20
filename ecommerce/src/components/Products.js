@@ -6,7 +6,7 @@ import paws from '../images/Paws.png'
 
 const Products = () => {
     return (
-        <div className="text-center text-4xl pt-10 pb-10 relative" style={{ color: "#FFB551" }}> PRODUCTS
+        <div id="Product" className="text-center text-4xl pt-10 pb-10 relative" style={{ color: "#FFB551" }}> PRODUCTS
             <div className="flex justify-center gap-20 p-2 md:p-10 relative">
                 <div className="block relative">
                     <img className="h-64" src={petfood} alt="" />

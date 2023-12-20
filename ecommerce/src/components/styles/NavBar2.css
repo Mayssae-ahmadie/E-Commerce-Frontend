@@ -32,9 +32,14 @@
 
 .Links2 ul {
     display: flex;
+    font-size: x-large;
     justify-content: space-between;
     color: white;
     padding-left: 5%;
+}
+
+.Links2 li:hover {
+    color:#2EC4B6
 }
 
 .Login2 {

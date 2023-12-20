@@ -9,7 +9,7 @@ const Services = () => {
         <div>
             <h2 className="text-center text-4xl mb-4 pb-10" style={{ color: "#FFB551" }}>SERVICES</h2>
 
-            <div className="flex gap-8 m-8 justify-center">
+            <div id="Services" className="flex gap-8 m-8 justify-center">
                 <div className="bg-teal-500 border border-yellow w-1/6 h-1/2 p-4 rounded-xl">
                     <img className="mx-auto my-2 h-20 w-20" src={petshampoo} alt="" />
                     <p className="text-white text-xl font-lilita text-center">

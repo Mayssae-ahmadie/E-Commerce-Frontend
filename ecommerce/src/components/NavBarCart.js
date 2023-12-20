@@ -1,7 +1,7 @@
 import "./styles/NavBar2.css";
 import "./styles/Herosection2.css";
 import Logo from "../images/Logo.png";
-import Vector from "../images/Vector.png";
+// import Vector from "../images/Vector.png";
 import CartImage from "../images/cart-image.png";
 import { Link } from "react-router-dom";
 
@@ -28,9 +28,9 @@ const NavBarCart = () => {
           <li>
             <a href="#Contact" className="">Contact us</a>
           </li>
-          <li>
+          {/* <li>
             <img src={Vector} className="search-icon2" alt="search icon"></img>
-          </li>
+          </li> */}
           <li>
             <img src={CartImage} className="cart-icon2" alt="cart-icon"></img>
           </li>

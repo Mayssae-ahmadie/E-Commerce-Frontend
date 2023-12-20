@@ -90,6 +90,7 @@ const AllProductPage = () => {
 
       <div>
         <h1
+        id='Products2'
           className="text-center text-4xl font-lilita pt-20"
           style={{ color: "#2EC4B6" }}
         >
