@@ -4,7 +4,7 @@ import NavBarProduct from "./NavBarProduct";
 import SlangImage from "../images/Your Pet-Priority.png";
 import HeroProductPage from "../images/Hero-productPage.png";
 import Footerproductcart from "./Footerproductcart";
-import { getUserID } from './Util/GetUserData';
+import { getUserID } from '../Util/GetUserData';
 import "./styles/Herosection2.css";
 import axios from 'axios';
 import add from '../images/Add.png';
@@ -80,7 +80,7 @@ const AllProductPage = () => {
             <div>
                 <h1 className="text-center text-4xl font-lilita pt-20" style={{ color: "#2EC4B6" }}> PRODUCTS </h1>
                 <div>
-                    <div className="grid grid-cols-3 gap-4 p-10">
+                    <div className="products-grid grid grid-cols-3 gap-4 p-10">
                         {catFoodProducts.map((product) => (
                             <div key={product._id}>
                                 <div className="block justify-center items-center border-2 border-orange-500 rounded-3xl" style={{ borderColor: "FFB551" }}>
@@ -96,7 +96,7 @@ const AllProductPage = () => {
                                         />
                                     </div>
                                     <Link to={`/SingleProductPage/${product._id}`}>
-                                        <img src={product.productImage} className="mx-auto w-64 h-64 p-5" alt={product.productName} onClick={() => navigate(`/SingleProductPage/${product._id}`)} />
+                                        <img src={product.productImage} className="products-image mx-auto w-64 h-64 p-5" alt={product.productName} onClick={() => navigate(`/SingleProductPage/${product._id}`)} />
                                     </Link>
                                     <h2 className="text-center text-xl font-lilita" style={{ color: "#2EC4B6" }}>
                                         <Link to={`/SingleProductPage/${product._id}`}>{product.productName}</Link>
@@ -123,7 +123,7 @@ const AllProductPage = () => {
                                         />
                                     </div>
                                     <Link to={`/SingleProductPage/${product._id}`}>
-                                        <img src={product.productImage} className="mx-auto w-64 h-64 p-5" alt={product.productImage} />
+                                        <img src={product.productImage} className="products-image mx-auto w-64 h-64 p-5" alt={product.productImage} />
                                     </Link>
                                     <h2 className="text-center text-xl font-lilita" style={{ color: "#2EC4B6" }}>
                                         <Link to={`/SingleProductPage/${product._id}`}>{product.productName}</Link>
@@ -140,7 +140,7 @@ const AllProductPage = () => {
 
                 <h1 className="text-center text-4xl font-lilita pt-20" style={{ color: "#2EC4B6" }}> ACCESSORIES </h1>
                 <div>
-                    <div className="grid grid-cols-3 gap-4 p-10">
+                    <div className="products-grid grid grid-cols-3 gap-4 p-10">
                         {accessoryProducts.map((product) => (
                             <div className="product-box" key={product._id}>
                                 <div className="block justify-center items-center border-2 border-orange-500 rounded-3xl" style={{ borderColor: "FFB551" }}>
@@ -153,7 +153,7 @@ const AllProductPage = () => {
                                         />
                                     </div>
                                     <Link to={`/SingleProductPage/${product._id}`}>
-                                        <img src={product.productImage} className="mx-auto w-64 h-64 p-5" alt={product.productName} onClick={() => navigate(`/SingleProductPage/${product._id}`)} />
+                                        <img src={product.productImage} className="products-image mx-auto w-64 h-64 p-5" alt={product.productName} onClick={() => navigate(`/SingleProductPage/${product._id}`)} />
                                     </Link>
                                     <h2 className="text-center text-xl font-lilita" style={{ color: "#2EC4B6" }}>
                                         <Link to={`/SingleProductPage/${product._id}`}>{product.productName}</Link>
@@ -168,7 +168,7 @@ const AllProductPage = () => {
                     </div>
                 </div>
 
-                <div className="text-center text-5xl flex items-center justify-center gap-8">
+                <div className="products-text text-center text-5xl flex items-center justify-center gap-8">
                     <p className="" style={{ color: "#FFB551" }}> Where style meets </p>
                     <p className="mt-10" style={{ color: "#2EC4B6" }}> wagging tails </p>
                 </div>

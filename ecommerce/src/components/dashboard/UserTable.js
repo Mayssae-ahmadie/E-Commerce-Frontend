@@ -1,7 +1,7 @@
 import axios from "axios";
 import "../styles/styles.css";
 import { useEffect, useState } from "react";
-import { getUserid } from "../Util/GetUserData"
+import { getUserID } from "../../Util/GetUserData";
 
 const UserTable = () => {
   const [users, setUsers] = useState([]);
@@ -104,7 +104,7 @@ const UserTable = () => {
   const handleDelete = async (userid) => {
     const token = sessionStorage.getItem("authToken");
     const headers = { Authorization: `Bearer ${token}` };
-      console.log(headers);
+    console.log(headers);
     try {
       await axios.delete(`http://localhost:5000/users/delete/${userid}`, {
         headers,
@@ -159,7 +159,7 @@ const UserTable = () => {
                   onClick={() => {
                     handleDelete(user._id);
                   }}
-                  disabled={user.id === getUserid()}
+                  disabled={user.id === getUserID()}
                 >
                   Delete
                 </button>

@@ -6,7 +6,7 @@ import Footerproductcart from './Footerproductcart';
 import SlangImage2 from '../images/Time-to-Pay.png';
 import CartImage2 from '../images/Time-to-Pay2.png';
 import './styles/Herosection2.css';
-import { getUserID } from './Util/GetUserData';
+import { getUserID } from '../Util/GetUserData';
 
 const CartPage = () => {
   const [cartData, setCartData] = useState([]);

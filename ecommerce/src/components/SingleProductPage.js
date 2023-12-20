@@ -6,7 +6,7 @@ import HeroProductPage from "../images/Hero-productPage.png";
 import Footerproductcart from "./Footerproductcart";
 import "./styles/Herosection2.css";
 import axios from 'axios';
-import { getUserID } from './Util/GetUserData';
+import { getUserID } from '../Util/GetUserData';
 
 const SingleProductPage = () => {
     const [product, setProduct] = useState(null);
@@ -84,8 +84,8 @@ const SingleProductPage = () => {
             {product && (
                 <div>
                     <h1 className="text-center text-4xl font-lilita pt-20" style={{ color: "#2EC4B6" }}>Product Details</h1>
-                    <div className="flex justify-center content-around gap-20 mt-10">
-                        <div className="justify-center items-center border-2 border-orange-500 rounded-3xl ml-10" style={{ borderColor: "FFB551" }}>
+                    <div className="single-product-info flex justify-center content-around gap-20 mt-10">
+                        <div className="single-product-image justify-center items-center border-2 border-orange-500 rounded-3xl ml-10" style={{ borderColor: "FFB551" }}>
                             <div>
                                 {product.discountPercentage > 0 && (
                                     <p className="product-discount">Discount: {product.discountPercentage}%</p>
@@ -94,7 +94,7 @@ const SingleProductPage = () => {
                             <img src={product.productImage} className="mx-auto w-64 h-64 p-5" alt={product.productName} />
                         </div>
                         <div>
-                            <div className="text-left text-xl font-lilita" style={{ color: "#2EC4B6" }}>
+                            <div className="single-product-text text-left text-xl font-lilita" style={{ color: "#2EC4B6" }}>
                                 <h2 >{product.productName}</h2>
                                 <p> By: {product.productBrand}</p>
                                 <p> Category: {product.category}</p>
@@ -118,7 +118,7 @@ const SingleProductPage = () => {
                         </div>
                     </div>
 
-                    <div className="text-center text-5xl flex items-center justify-center gap-8">
+                    <div className="products-text text-center text-5xl flex items-center justify-center gap-8">
                         <p className="" style={{ color: "#FFB551" }}> Where style meets </p>
                         <p className="mt-10" style={{ color: "#2EC4B6" }}> wagging tails </p>
                     </div>

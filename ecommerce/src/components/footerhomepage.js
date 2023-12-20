@@ -2,10 +2,11 @@ import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { Link } from 'react-router-dom';
 import './styles/footerhomepage.css';
-import facebook from "../images/facebook-icon.png"
-import instagram from "../images/instagram-icon.png"
-import linkedin from "../images/linkedin-icon.png"
-import footerimage from "../images/Footer-image.png"
+import facebook from "../images/facebook-icon.png";
+import instagram from "../images/instagram-icon.png";
+import linkedin from "../images/linkedin-icon.png";
+import footerimage from "../images/Footer-image.png";
+import './styles/Responsive.css';
 
 function Footerhomepage() {
     const form = useRef();

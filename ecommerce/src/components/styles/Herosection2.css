@@ -47,3 +47,28 @@
     padding: 70px;
     padding-right: -70px;
 }
+
+@media (max-width: 766px) {
+    .Header-Desktop2 {
+        height: 180px;
+    }
+
+    .Hero-image2 {
+        margin-top: -20%;
+    }
+
+    .slang-image2 {
+        width: 45%;
+    }
+
+    .Order-now2 {
+        padding: 0;
+        margin-left: 0%;
+        margin-bottom: -13%;
+        width: 110px;
+    }
+
+    .Order-button-header {
+        margin-bottom: 80%;
+    }
+}
