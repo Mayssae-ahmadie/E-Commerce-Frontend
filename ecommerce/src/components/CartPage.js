@@ -6,6 +6,7 @@ import Footerproductcart from "./footerproductcart";
 import SlangImage2 from "../images/Time-to-Pay.png";
 import CartImage2 from "../images/Time-to-Pay2.png";
 import "./styles/Herosection2.css";
+import "./styles/cart.css";
 import { getUserID } from "./Util/GetUserData";
 
 const CartPage = () => {
@@ -103,37 +104,50 @@ const CartPage = () => {
         {" "}
         Your Cart
       </h2>
-      <div id="cart-items">
+      <div className="cart-section" id="cart-items">
         {cartData && (
-          <div key={cartData.productId}>
-            <img src={cartData.productImage} />
-            <p>Name: {cartData.productName}</p>
-            <p>Price: ${cartData.price}</p>
-            {/* <p>Quantity: {cartData.quantity}</p> */}
+          <div className="cart-container" key={cartData.productId}>
+            <img className="cart-image" src={cartData.productImage} />
+            <div>
+              <div className="cart-details">
+                <p className="cart-category"> {cartData.category}</p>
+                <div className="cart-nameandprice">
+                  <p className=".cart-name"> {cartData.productName} - {cartData.productBrand}</p>
+                  <p className=".cart-price">Price: ${cartData.price}</p>
+                  {/* <p>Quantity: {cartData.quantity}</p> */}
+                </div>
+              </div>
+
+              <div className="cart-checkout">
+                <p className="COD"> CASH ON DELIVERY </p>
+                <div className="checkout-container">
+                  {checkoutStatus === "success" ? (
+                    <p>Thank you for your order!</p>
+                  ) : (
+                    <button className="checkout-btn" onClick={handleCheckout}> CHECKOUT </button>
+                  )}
+                </div>
+                <div className="checkout-price"> Price: ${cartData.price}</div>
+              </div>
+            </div>
           </div>
         )}
-      </div>
-      <div id="total-price">Total Price: ${cartData.price}</div>
-      {checkoutStatus === "success" ? (
-        <p>Thank you for your order!</p>
-      ) : (
-        <button onClick={handleCheckout}>Checkout</button>
-      )}
 
-      <div className="text-center text-5xl flex items-center justify-center gap-8">
-        <p className="" style={{ color: "#FFB551" }}>
-          {" "}
-          Where style meets{" "}
-        </p>
-        <p className="mt-10" style={{ color: "#2EC4B6" }}>
-          {" "}
-          wagging tails{" "}
-        </p>
+        < div className="text-center text-5xl flex items-center justify-center gap-8">
+          <p className="" style={{ color: "#FFB551" }}>
+            {" "}
+            Where style meets{" "}
+          </p>
+          <p className="mt-10" style={{ color: "#2EC4B6" }}>
+            {" "}
+            wagging tails{" "}
+          </p>
+        </div>
+        <Footerproductcart />
       </div>
-
-      <Footerproductcart />
-    </div>
+    </div >
   );
 };
+
 
 export default CartPage;
