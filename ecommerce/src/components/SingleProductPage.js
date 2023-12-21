@@ -32,16 +32,6 @@ const SingleProductPage = () => {
         fetchProductById();
     }, [id]);
 
-    const handleIncreaseQuantity = () => {
-        setQuantity(quantity + 1);
-    };
-
-    const handleDecreaseQuantity = () => {
-        if (quantity > 1) {
-            setQuantity(quantity - 1);
-        }
-    };
-
     const handleAddToCart = async (product) => {
         console.log(product);
         try {
@@ -135,28 +125,13 @@ const SingleProductPage = () => {
                                 </p>
                             </div>
                             <div>
-                                <p className=""> ${product.price}</p>
+                                <p className="text-center text-xl font-lilita"
+                                    style={{ color: "#2EC4B6" }}> ${product.price}</p>
                             </div>
                             <div className="flex items-center mt-4">
-                                <label htmlFor="quantity" className="mr-2">
-                                    Quantity:
-                                </label>
-                                <button
-                                    onClick={handleDecreaseQuantity}
-                                    className="bg-gray-200 px-2"
-                                >
-                                    -
-                                </button>
-                                <span className="mx-2">{quantity}</span>
-                                <button
-                                    onClick={handleIncreaseQuantity}
-                                    className="bg-gray-200 px-2"
-                                >
-                                    +
-                                </button>
                                 <button
                                     onClick={handleAddToCart}
-                                    className="bg-blue-500 text-white px-4 ml-4"
+                                    className="text-xl mt-4 bg-ffb551 h-38 w-300 text-white border-2 border rounded-2xl pt-3 pb-3 pl-12 pr-12" style={{ backgroundColor: "#FFB551"}}
                                 >
                                     Add to Cart
                                 </button>
